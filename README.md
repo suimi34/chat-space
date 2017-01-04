@@ -41,6 +41,13 @@ Things you may want to cover:
 |group_id |integer  |NOT NULL & t.references :groups  |
 |user_id  |integer  |NOT NULL & t.references :users   |
 
+##アソシエーション
+user  :has_and_belongs_to_many :groups
+user  :has_many :messages
+group :has_and_belongs_to_many :users
+group :has_many :messages, through :user
+message :belongs_to :user
+message :has_one :group, through, :user
 
 
 * Database initialization
