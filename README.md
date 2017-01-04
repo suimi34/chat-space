@@ -15,7 +15,7 @@ Things you may want to cover:
 ## messagesテーブル
 |column   |type      |option   |
 |:--------|:---------|:--------|
-|body     |text      |         |
+|body     |text      |NOT NULL |
 |image    |string    |         |
 |group_id |integer   |NOT NULL |
 |user_id  |integer   |NOT NULL |
