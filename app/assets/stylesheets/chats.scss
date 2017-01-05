@@ -12,3 +12,49 @@ header {
   text-align: center;
   color: #ffffff;
 }
+
+.menu {
+  width: 300px;
+  height: 100%;
+  float: left;
+  color: #ffffff;
+  .menu__user {
+    padding: 0 20px 0;
+    height: 98px;
+    background-color: #253141;
+    font-size: 16px;
+
+    p.user__name {
+      font-weight: bold;
+      margin: 35px auto;
+      float: left;
+    }
+
+    ul.user__action {
+      margin: 35px auto;
+      float: right;
+      li.user__new {
+        display: inline;
+      }
+
+      li.user__edit {
+        display: inline;
+
+      }
+    }
+  }
+   .menu__group {
+    padding: 0 20px 0;
+    background-color: #2f3e51;
+    height: 100%;
+    p.group__name {
+      font-size: 15px;
+      padding: 20px 0 2.5px;
+    }
+
+    p.group__message {
+      font-size: 11px;
+      padding: 2.5px 0 40px 0;
+    }
+  }
+}
