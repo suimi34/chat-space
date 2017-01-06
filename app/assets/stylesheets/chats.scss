@@ -31,17 +31,17 @@ header {
       float: left;
     }
 
-    ul.user__action {
+    .user__action {
       margin: 35px auto;
       float: right;
       i {
         font-size: 20px;
       }
-      li.user--new {
+      .user--new {
         display: inline;
       }
 
-      li.user--edit {
+      .user--edit {
         display: inline;
       }
     }
