@@ -37,11 +37,11 @@ header {
       i {
         font-size: 20px;
       }
-      li.user__new {
+      li.user--new {
         display: inline;
       }
 
-      li.user__edit {
+      li.user--edit {
         display: inline;
       }
     }
@@ -71,8 +71,8 @@ header {
 
   .view__group {
     height: 97px;
-    border-bottom: solid #eeeeee;
-    p.group__edit {
+    border-bottom: solid 0.5px #eeeeee;
+    p.group--edit {
       color: #38AEF0;
       line-height: 40px;
       border: solid #38AEF0 2px;
@@ -129,7 +129,7 @@ header {
   }
 
 
-  .view__message__new {
+  .view__message--new {
     height: 90px;
     width: calc(100vw - 300px);
     background: #AAAAAA;

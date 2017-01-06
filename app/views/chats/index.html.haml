@@ -6,9 +6,9 @@
     %div.menu__user
       %p.user__name Ishikawa
       %ul.user__action
-        %li.user__new
+        %li.user--new
         %i.fa.fa-pencil-square-o{ aria: { hidden: true }}
-        %li.user__edit
+        %li.user--edit
         %i.fa.fa-cog{ aria: { hidden: true }}
     %div.menu__group
       %p.group__name
@@ -22,7 +22,7 @@
 
   %div.view
     %div.view__group
-      %p.group__edit Edit
+      %p.group--edit Edit
       %div.group__info
         %p.group__name 現在のグループ名
         %p.group__member Members: メンバーの名前
@@ -53,7 +53,7 @@
         %p.message__date 投稿日時
         %p.message__body 投稿内容
 
-    %div.view__message__new
+    %div.view__message--new
       = form_tag do
         %input.message{ type:"body", placeholder: "type a message" }
         %button{ type: "submit", value: "Send"}Send
