@@ -18,7 +18,7 @@ header {
   width: 300px;
   float: left;
   color: #ffffff;
-  height: 100%;
+  height: calc(100vh - 22px);
   .menu__user {
     padding: 0 20px 0;
     height: 98px;
