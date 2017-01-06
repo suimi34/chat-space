@@ -55,7 +55,7 @@
 
     %div.view__message--new
       = form_tag do
-        %input.message{ type:"body", placeholder: "type a messsage" }
+        %input{ type:"body", placeholder: "type a message" }
+        %i.fa.fa-picture-o{ aria: { hidden: true }}
         %button{ type: "submit", value: "Send"}Send
-
 

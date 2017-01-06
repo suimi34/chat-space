@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
 html, body {
   height: 100%;
 }
@@ -18,7 +20,7 @@ header {
   width: 300px;
   float: left;
   color: #ffffff;
-  height: calc(100vh - 22px);
+  height: calc(100vh - 22px);    //ヘッダー分を除き、画面いっぱいに広がる
   .menu__user {
     padding: 0 20px 0;
     height: 98px;
@@ -49,7 +51,7 @@ header {
    .menu__group {
     padding: 0 20px 0;
     background-color: #2f3e51;
-    height: calc(100vh - 120px);
+    height: calc(100vh - 120px);    //ヘッダー分とmenu__user分を除き、画面いっぱいに広がる
     p.group__name {
       font-size: 15px;
       padding: 20px 0 2.5px;
@@ -64,10 +66,10 @@ header {
 
 .view {
   float: left;
-  height: calc(100vh - 22px);
+  height: calc(100vh - 22px);     //ヘッダー分を除き、画面いっぱいに広がる
   display: flex;
   flex-direction: column;
-  width: calc(100vw - 300px);
+  width: calc(100vw - 300px);     //左側のメニュー分を除き、画面いっぱいに広がる
 
   .view__group {
     height: 97.5px;
@@ -110,15 +112,15 @@ header {
         font-size: 16px;
         font-weight: bold;
         color: #434A54;
-        display: inline-block;
-        vertical-align: middle;
+        display: inline-block;        //投稿者と投稿日時を横並びにする
+        vertical-align: middle;       //文字の高さを中央に合わせる
       }
       p.message__date {
         font-size: 12px;
         color: #999999;
         margin-left: 10px;
-        display: inline-block;
-        vertical-align: middle;
+        display: inline-block;        //投稿者と投稿日時を横並びにする
+        vertical-align: middle;       //文字の高さを中央に合わせる
       }
       p.message__body {
         font-size: 14px;
@@ -131,20 +133,22 @@ header {
 
   .view__message--new {
     height: 90px;
-    width: calc(100vw - 300px);
+    width: calc(100vw - 300px);       //左側のメニュー分を除き、画面いっぱいに広がる
     background: #AAAAAA;
 
-    input.message {
+    input {
       height: 50px;
-      width: 780px;
+      width: 760px;
       padding-left: 10px;
       margin: 20px 0 20px 40px;
       border: none;
       float: left;
-      font-family: "FontAwesome";
-      font-style: normal;
-      font-weight: normal;
-      text-decoration: inherit;
+    }
+
+    i {
+      position: absolute;           //アイコンを入力フォームに重ねる
+      bottom: 35px;
+      right: 180px;
     }
 
     button {
