@@ -103,6 +103,7 @@ header {
     padding-top: 46px;
     flex: 1;
     overflow: scroll;
+    background: rgba(170,170,170, 0.1);
 
     .view__message {
       margin: 0 0 40px 40px;
@@ -133,7 +134,7 @@ header {
   .view__message--new {
     height: 90px;
     width: calc(100vw - 300px);       //左側のメニュー分を除き、画面いっぱいに広がる
-    background: #AAAAAA;
+    background: rgba(170,170,170, 0.4);
 
     input {
       height: 50px;
