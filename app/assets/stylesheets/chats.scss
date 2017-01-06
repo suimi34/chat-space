@@ -134,34 +134,34 @@ header {
     width: calc(100vw - 300px);
     background: #AAAAAA;
 
-    .post__box {
+    input.message {
       height: 50px;
-      min-width: 800px;
-      background: #ffffff;
+      width: 780px;
       margin: 20px 0 20px 40px;
+      border: none;
       float: left;
-
-      p {
-        color: #434A54;
-        font-size: 16px;
-        margin: 10px 0 10px 10px;
-        float: left;
-      }
-
-      i {
-        float: right;
-        margin: 15px 10px 15px 0;
-      }
     }
-
-    .post__button  {
+    ::-webkit-input-placeholder {
+      padding-left: 10px;
+    }
+    :-moz-placeholder {
+      padding-left: 10px;
+    }
+    ::-moz-placeholder {
+      padding-left: 10px;
+    }
+    :-ms-input-placeholder {
+      padding-left: 10px;
+    }
+    button {
+      height: 50px;
+      width: 100px;
+      background-color: #38AEF0;
       color: #ffffff;
-      background: #38AEF0;
-      line-height: 50px;
-      margin: 20px 40px 20px 15px;
-      padding: 0 20px;
+      font-size: 18px;
+      border: none;
       float: right;
+      margin: 20px 40px 20px 15px;
     }
   }
 }
-
