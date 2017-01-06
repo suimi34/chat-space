@@ -15,7 +15,7 @@ header {
   float: left;
   color: #ffffff;
   height: calc(100vh - 22px);    //ヘッダー分を除き、画面いっぱいに広がる
-  .menu__user {
+  &__user {
     padding: 0 20px 0;
     height: 100px;
     background-color: #253141;
@@ -65,7 +65,7 @@ header {
   flex-direction: column;
   width: calc(100vw - 300px);     //左側のメニュー分を除き、画面いっぱいに広がる
 
-  .view__group {
+  &__group {
     height: 99.5px;
     border-bottom: solid 0.5px #eeeeee;
     p.group--edit {
