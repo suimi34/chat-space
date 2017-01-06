@@ -70,7 +70,7 @@ header {
   width: calc(100vw - 300px);
 
   .view__group {
-    height: 97px;
+    height: 97.5px;
     border-bottom: solid 0.5px #eeeeee;
     p.group--edit {
       color: #38AEF0;
@@ -137,22 +137,16 @@ header {
     input.message {
       height: 50px;
       width: 780px;
+      padding-left: 10px;
       margin: 20px 0 20px 40px;
       border: none;
       float: left;
+      font-family: "FontAwesome";
+      font-style: normal;
+      font-weight: normal;
+      text-decoration: inherit;
     }
-    ::-webkit-input-placeholder {
-      padding-left: 10px;
-    }
-    :-moz-placeholder {
-      padding-left: 10px;
-    }
-    ::-moz-placeholder {
-      padding-left: 10px;
-    }
-    :-ms-input-placeholder {
-      padding-left: 10px;
-    }
+
     button {
       height: 50px;
       width: 100px;
