@@ -4,16 +4,16 @@ html, body {
 
 
 header {
-  background-color: #38AEF0;
+  background-color: $lightBlue;
   text-align: center;
-  color: #ffffff;
+  color: $white;
   height: 22px;
 }
 
 .menu {
   width: 300px;
   float: left;
-  color: #ffffff;
+  color: $white;
   height: calc(100vh - 22px);    //ヘッダー分を除き、画面いっぱいに広がる
   &__user {
     padding: 0 20px 0;
@@ -69,9 +69,9 @@ header {
     height: 99.5px;
     border-bottom: solid 0.5px #eeeeee;
     &--edit {
-      color: #38AEF0;
+      color: $lightBlue;
       line-height: 40px;
-      border: solid #38AEF0 2px;
+      border: solid $lightBlue 2px;
       margin: 28px 40px 0 0;
       padding: 0 20px;
       float: right;
@@ -105,7 +105,7 @@ header {
       &__name {
         font-size: 16px;
         font-weight: bold;
-        color: #434A54;
+        color: $navyBlue;
         display: inline-block;        //投稿者と投稿日時を横並びにする
         vertical-align: middle;       //文字の高さを中央に合わせる
       }
@@ -118,7 +118,7 @@ header {
       }
       &__body {
         font-size: 14px;
-        color: #434A54;
+        color: $navyBlue;
         margin-top: 10px;
       }
     }
@@ -148,8 +148,8 @@ header {
     button {
       height: 50px;
       width: 100px;
-      background-color: #38AEF0;
-      color: #ffffff;
+      background-color: $lightBlue;
+      color: $white;
       font-size: 18px;
       border: none;
       float: right;
