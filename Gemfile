@@ -47,4 +47,3 @@ end
 
 gem 'haml-rails', '~> 0.9.0'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
-gem 'font-awesome-sass'
