@@ -1,0 +1,28 @@
+%div.view__group
+  %div.view__group--edit Edit
+  %div.view__group__info
+    %div.view__group__info__name 現在のグループ名
+    %div.view__group__info__member Members: メンバーの名前
+
+%div.view__messages
+  %div.view__messages__message
+    %div.view__messages__message__name 名前
+    %div.view__messages__message__date 投稿日時
+    %div.view__messages__message__body 投稿内容
+  %div.view__messages__message
+    %div.view__messages__message__name 名前
+    %div.view__messages__message__date 投稿日時
+    %div.view__messages__message__body 投稿内容
+  %div.view__messages__message
+    %div.view__messages__message__name 名前
+    %div.view__messages__message__date 投稿日時
+    %div.view__messages__message__body 投稿内容
+  %div.view__messages__message
+    %div.view__messages__message__name 名前
+    %div.view__messages__message__date 投稿日時
+    %div.view__messages__message__body 投稿内容
+%div.view__message--new
+  = form_tag do
+    %input{ type:"body", placeholder: "type a message" }
+    %i.fa.fa-picture-o{ aria: { hidden: true } }
+    %button{ type: "submit", value: "Send" }Send
