@@ -21,23 +21,23 @@ header {
     background-color: #253141;
     font-size: 16px;
 
-    p.user__name {
+    &__name {
       font-weight: bold;
       margin: 35px auto;
       float: left;
     }
 
-    .user__action {
+    &__action {
       margin: 35px auto;
       float: right;
       i {
         font-size: 20px;
       }
-      .user--new {
+      &--new {
         display: inline;
       }
 
-      .user--edit {
+      &--edit {
         display: inline;
       }
     }
@@ -68,7 +68,7 @@ header {
   &__group {
     height: 99.5px;
     border-bottom: solid 0.5px #eeeeee;
-    p.group--edit {
+    &--edit {
       color: #38AEF0;
       line-height: 40px;
       border: solid #38AEF0 2px;
@@ -77,15 +77,15 @@ header {
       float: right;
 
     }
-    .group__info {
+    &__info {
       margin: 35px 0 0 40px;
       float: left;
-      p.group__name {
+      &__name {
         color: #333333;
         font-size: 20px;
         margin-bottom: 15px;
       }
-      p.group__member {
+      &__member {
         color: #999999;
         font-size: 12px;
       }

@@ -4,11 +4,11 @@
     チャットグループが更新されました
   %div.menu
     %div.menu__user
-      %p.user__name Ishikawa
-      %div.user__action
-        %div.user--new
+      %div.menu__user__name Ishikawa
+      %div.menu__user__action
+        %div.menu__user__action--new
         %i.fa.fa-pencil-square-o{ aria: { hidden: true } }
-        %div.user--edit
+        %div.menu__user__action--edit
         %i.fa.fa-cog{ aria: { hidden: true } }
     %div.menu__group
       %p.group__name
@@ -22,10 +22,10 @@
 
   %div.view
     %div.view__group
-      %p.group--edit Edit
-      %div.group__info
-        %p.group__name 現在のグループ名
-        %p.group__member Members: メンバーの名前
+      %div.view__group--edit Edit
+      %div.view__group__info
+        %div.view__group__info__name 現在のグループ名
+        %div.view__group__info__member Members: メンバーの名前
 
     %div.view__all__messages
       %div.view__message
