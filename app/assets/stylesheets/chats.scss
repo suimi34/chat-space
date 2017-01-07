@@ -1,0 +1,159 @@
+html, body {
+  height: 100%;
+}
+
+
+header {
+  background-color: $lightBlue;
+  text-align: center;
+  color: $white;
+  height: 22px;
+}
+
+.menu {
+  width: 300px;
+  float: left;
+  color: $white;
+  height: calc(100vh - 22px);
+  &__user {
+    padding: 0 20px 0;
+    height: 100px;
+    background-color: #253141;
+    font-size: 16px;
+
+    &__name {
+      font-weight: bold;
+      margin: 35px auto;
+      float: left;
+    }
+
+    &__action {
+      margin: 35px auto;
+      float: right;
+      i {
+        font-size: 20px;
+      }
+      &--new {
+        display: inline;
+      }
+
+      &--edit {
+        display: inline;
+      }
+    }
+  }
+  &__group {
+    padding: 0 20px 0;
+    background-color: #2f3e51;
+    height: calc(100vh - 122px);
+    &__name {
+      font-size: 15px;
+      padding: 20px 0 2.5px;
+    }
+
+    &__message {
+      font-size: 11px;
+      padding: 2.5px 0 40px 0;
+    }
+  }
+}
+
+.view {
+  float: left;
+  height: calc(100vh - 22px);
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 300px);
+
+  &__group {
+    height: 99.5px;
+    border-bottom: solid 0.5px #eeeeee;
+    &--edit {
+      color: $lightBlue;
+      line-height: 40px;
+      border: solid $lightBlue 2px;
+      margin: 28px 40px 0 0;
+      padding: 0 20px;
+      float: right;
+
+    }
+    &__info {
+      margin: 35px 0 0 40px;
+      float: left;
+      &__name {
+        color: #333333;
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+      &__member {
+        color: #999999;
+        font-size: 12px;
+      }
+    }
+  }
+
+  &__messages {
+    width: 100%;
+    padding-top: 46px;
+    flex: 1;
+    overflow: scroll;
+    background: rgba(170,170,170, 0.1);
+
+    &__message {
+      margin: 0 0 40px 40px;
+
+      &__name {
+        font-size: 16px;
+        font-weight: bold;
+        color: $navyBlue;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      &__date {
+        font-size: 12px;
+        color: #999999;
+        margin-left: 10px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      &__body {
+        font-size: 14px;
+        color: $navyBlue;
+        margin-top: 10px;
+      }
+    }
+  }
+
+
+  .view__message--new {
+    height: 90px;
+    width: calc(100vw - 300px);
+    background: rgba(170,170,170, 0.4);
+
+    input {
+      height: 50px;
+      width: 760px;
+      padding-left: 10px;
+      margin: 20px 0 20px 40px;
+      border: none;
+      float: left;
+    }
+
+    i {
+      position: absolute;
+      bottom: 35px;
+      right: 180px;
+    }
+
+    button {
+      height: 50px;
+      width: 100px;
+      background-color: $lightBlue;
+      color: $white;
+      font-size: 18px;
+      border: none;
+      float: right;
+      margin: 20px 40px 20px 15px;
+    }
+  }
+}
