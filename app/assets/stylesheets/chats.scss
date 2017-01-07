@@ -42,16 +42,16 @@ header {
       }
     }
   }
-   .menu__group {
+   &__group {
     padding: 0 20px 0;
     background-color: #2f3e51;
     height: calc(100vh - 122px);    //ヘッダー分とmenu__user分を除き、画面いっぱいに広がる
-    p.group__name {
+    &__name {
       font-size: 15px;
       padding: 20px 0 2.5px;
     }
 
-    p.group__message {
+    &__message {
       font-size: 11px;
       padding: 2.5px 0 40px 0;
     }
@@ -92,31 +92,31 @@ header {
     }
   }
 
-  .view__all__messages {
+  &__messages {
     width: 100%;
     padding-top: 46px;
     flex: 1;
     overflow: scroll;
     background: rgba(170,170,170, 0.1);
 
-    .view__message {
+    &__message {
       margin: 0 0 40px 40px;
 
-      p.message__name {
+      &__name {
         font-size: 16px;
         font-weight: bold;
         color: #434A54;
         display: inline-block;        //投稿者と投稿日時を横並びにする
         vertical-align: middle;       //文字の高さを中央に合わせる
       }
-      p.message__date {
+      &__date {
         font-size: 12px;
         color: #999999;
         margin-left: 10px;
         display: inline-block;        //投稿者と投稿日時を横並びにする
         vertical-align: middle;       //文字の高さを中央に合わせる
       }
-      p.message__body {
+      &__body {
         font-size: 14px;
         color: #434A54;
         margin-top: 10px;

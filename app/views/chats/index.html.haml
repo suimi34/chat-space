@@ -11,13 +11,13 @@
         %div.menu__user__action--edit
         %i.fa.fa-cog{ aria: { hidden: true } }
     %div.menu__group
-      %p.group__name
+      %div.menu__group__name
         グループ名
-      %p.group__message
+      %div.menu__group__message
         最新のコメント
-      %p.group__name
+      %div.menu__group__name
         グループ名
-      %p.group__message
+      %div.menu__group__message
         最新のコメント
 
   %div.view
@@ -27,31 +27,23 @@
         %div.view__group__info__name 現在のグループ名
         %div.view__group__info__member Members: メンバーの名前
 
-    %div.view__all__messages
-      %div.view__message
-        %p.message__name 名前
-        %p.message__date 投稿日時
-        %p.message__body 投稿内容
-      %div.view__message
-        %p.message__name 名前
-        %p.message__date 投稿日時
-        %p.message__body 投稿内容
-      %div.view__message
-        %p.message__name 名前
-        %p.message__date 投稿日時
-        %p.message__body 投稿内容
-      %div.view__message
-        %p.message__name 名前
-        %p.message__date 投稿日時
-        %p.message__body 投稿内容
-      %div.view__message
-        %p.message__name 名前
-        %p.message__date 投稿日時
-        %p.message__body 投稿内容
-      %div.view__message
-        %p.message__name 名前
-        %p.message__date 投稿日時
-        %p.message__body 投稿内容
+    %div.view__messages
+      %div.view__messages__message
+        %div.view__messages__message__name 名前
+        %div.view__messages__message__date 投稿日時
+        %div.view__messages__message__body
+      %div.view__messages__message
+        %div.view__messages__message__name 名前
+        %div.view__messages__message__date 投稿日時
+        %div.view__messages__message__body 投稿内容
+      %div.view__messages__message
+        %div.view__messages__message__name 名前
+        %div.view__messages__message__date 投稿日時
+        %div.view__messages__message__body 投稿内容
+      %div.view__messages__message
+        %div.view__messages__message__name 名前
+        %div.view__messages__message__date 投稿日時
+        %div.view__messages__message__body 投稿内容
 
     %div.view__message--new
       = form_tag do
