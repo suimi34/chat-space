@@ -9,3 +9,9 @@ body p.notice {
   color: $white;
   background-color: $lightBlue;
 }
+
+body p.alert {
+  text-align: center;
+  color: $white;
+  background-color: red;
+}
