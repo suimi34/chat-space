@@ -3,15 +3,3 @@
 @import "./chats";
 @import "font-awesome";
 @import "./user";
-
-body p.notice {
-  text-align: center;
-  color: $white;
-  background-color: $lightBlue;
-}
-
-body p.alert {
-  text-align: center;
-  color: $white;
-  background-color: red;
-}
