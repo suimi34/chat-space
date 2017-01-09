@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'chats#index'
-  get 'chats/index' => 'chats#index'
+  resources :chats, only: [:index]
 end
