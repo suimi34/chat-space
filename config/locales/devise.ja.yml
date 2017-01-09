@@ -1,6 +1,24 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 ja:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+            name:
+            blank: ユーザー名は空ではいけません
+            invalid: ユーザー名には半角英数字のみ利用できます
+            email:
+              blank: メールアドレスが空です
+              taken: メールアドレスが既に使用済みです
+            password:
+              blank: パスワードが空です
+              too_short: パスワードは8文字以上で利用できます
+            password_confirmation:
+              blank: 確認用パスワードが空です
+              confirmation: 確認用パスワードが一致しません
   devise:
     confirmations:
       confirmed: 'アカウントを登録しました。'
