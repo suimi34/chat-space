@@ -5,23 +5,25 @@
       .chat-group-form__field--left
         %label.chat-group-form__label{for: "chat_group_name"} グループ名
       .chat-group-form__field--right
-        %input#chat_group_name.chat-group-form__input{name: "chat_group[name]", placeholder: "グループ名を入力してください", type: "text"}/
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label.chat-group-form__label{for: "chat_group_チャットメンバーを追加"} チャットメンバーを追加
-      .chat-group-form__field--right
-        .chat-group-form__search.clearfix
-          = f.check_box :name
-        #user-search-result
+        .chat-group-form__input
+          = f.text_field :name, placeholder: "グループ名を入力してください", type: "text", size: "65"
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         %label.chat-group-form__label{for: "chat_group_チャットメンバー"} チャットメンバー
       .chat-group-form__field--right
-        #chat-group-users
-          #chat-group-user-22.chat-group-user.clearfix
-            %input{name: "chat_group[user_ids][]", type: "hidden", value: "22"}/
-            %p.chat-group-user__name seo_kyohei
+        .chat-group-form__search.clearfix
+          = f.check_box :name
+    /     #user-search-result
+    / .chat-group-form__field.clearfix
+    /   .chat-group-form__field--left
+    /     チャットメンバー
+    /   .chat-group-form__field--right
+    /     #chat-group-users
+    /       #chat-group-user-22.chat-group-user.clearfix
+    /         %input{name: "chat_group[user_ids][]", type: "hidden", value: "22"}/
+    /         %p.chat-group-user__name seo_kyohei
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
-        %input.chat-group-form__action-btn{"data-disable-with":"Save", name: "commit", type: "submit", value: "Save"}/
+        .chat-group-form__action-btn
+          = f.submit "data-disable-with":"Save", name: "commit", type: "submit", value: "Save"
