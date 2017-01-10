@@ -43,7 +43,7 @@
     margin-top: 30px;
     height: 50px;
 
-    .chat-group-form__field--left {
+    &--left {
       float: left;
       width: 30%;
       padding-right: 20px;
@@ -51,7 +51,7 @@
       box-sizing: border-box;
     }
 
-    .chat-group-form__field--right {
+    &--right {
       float: right;
       width: 70%;
     }
@@ -78,26 +78,26 @@
     font-size: 14px;
     border-bottom: 1px solid #ddd;
 
-    .chat-group-user__name {
+    &__name {
       float: left;
     }
 
-    .chat-group-user__btn {
+    &__btn {
       float: right;
       display: inline-block;
       cursor: pointer;
 
-      &.chat-group-user__btn--add {
+      &--add {
         color: #38aef0;
       }
 
-      &.chat-group-user__btn--remove {
+      &--remove {
         color: #f05050;
       }
     }
   }
 
-  .chat-group-form__action-btn {
+  &__action-btn {
     display: inline-block;
     padding: 12px 20px;
     color: #fff;
