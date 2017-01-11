@@ -1,5 +1,6 @@
 .menu__user
-  .menu__user__name Ishikawa
+  .menu__user__name
+    = current_user.name
   .menu__user__action
     .menu__user__action--new
       %i.fa.fa-pencil-square-o{ aria: { hidden: true } }
