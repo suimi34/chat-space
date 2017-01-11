@@ -2,7 +2,7 @@
   width: 980px;
   margin: 60px auto;
   padding: 40px;
-  background-color: #fff;
+  background-color: $white;
   border: $mainBorder;
   border-radius: 5px;
   box-sizing: border-box;
@@ -95,7 +95,7 @@
   &__action-btn {
     display: inline-block;
     padding: 12px 20px;
-    color: #fff;
+    color: $white;
     background-color: $lightBlue;
     border: 0;
   }
