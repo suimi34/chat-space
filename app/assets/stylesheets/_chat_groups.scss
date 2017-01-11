@@ -103,5 +103,11 @@
     color: #fff;
     background-color: #38aef0;
     border: 0;
+
+    &__submit {
+      background-color: transparent;
+      color: $white;
+      border: none;
+    }
   }
 }
