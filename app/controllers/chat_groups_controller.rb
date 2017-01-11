@@ -19,6 +19,6 @@ class ChatGroupsController < ApplicationController
 
   private
   def chat_group_params
-    params.permit(:name)
+    params.require(:chat_group).permit(:name)
   end
 end
