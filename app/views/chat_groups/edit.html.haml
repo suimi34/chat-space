@@ -5,8 +5,7 @@
       .chat-group-form__field--left
         %label.chat-group-form__label{for: "chat_group_name"} グループ名
       .chat-group-form__field--right
-        .chat-group-form__input
-        = f.text_field :name, placeholder: "グループ名を入力してください", size: "69"
+        = f.text_field :name, placeholder: "グループ名を入力してください", class: "chat-group-form__input"
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         %label.chat-group-form__label{for: "chat_group_チャットメンバーを追加"} チャットメンバーを追加
@@ -20,5 +19,4 @@
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
-        .chat-group-form__action-btn
-          = f.submit "Save", class: "chat-group-form__action-btn__submit"
+        = f.submit "Save", class: "chat-group-form__action-btn"
