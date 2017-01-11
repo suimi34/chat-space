@@ -92,7 +92,7 @@ body {
           margin-bottom: 15px;
         }
         &__member {
-          color: #999999;
+          color: $grey;
           font-size: 12px;
         }
       }
@@ -117,7 +117,7 @@ body {
         }
         &__date {
           font-size: 12px;
-          color: #999999;
+          color: $grey;
           margin-left: 10px;
           display: inline-block;
           vertical-align: middle;
