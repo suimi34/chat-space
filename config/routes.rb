@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'chats#index'
-  resources :chats, only: [:index]
+  root 'chat_groups#index'
+  resources :chat_groups, except: [:show, :destroy]
 end
