@@ -7,6 +7,7 @@ class ChatGroupsController < ApplicationController
   end
 
   def create
+    ChatGroup.create(name: chat_group_params[:name])
   end
 
   def edit
@@ -14,5 +15,10 @@ class ChatGroupsController < ApplicationController
   end
 
   def update
+  end
+
+  private
+  def chat_group_params
+    params.permit(:name)
   end
 end
