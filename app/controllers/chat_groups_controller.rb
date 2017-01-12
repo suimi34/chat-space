@@ -7,7 +7,11 @@ class ChatGroupsController < ApplicationController
   end
 
   def create
-    ChatGroup.create(name: chat_group_params[:name])
+    @chat_group = ChatGroup.create(name: chat_group_params[:name])
+    redirect_to action: :messages, id: @chat_group.id
+  end
+
+  def messages
   end
 
   def edit
