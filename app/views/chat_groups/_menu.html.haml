@@ -3,7 +3,8 @@
     = current_user.name
   .menu__user__action
     .menu__user__action--new
-      %i.fa.fa-pencil-square-o{ aria: { hidden: true } }
+      = link_to new_chat_group_path do
+        %i.fa.fa-pencil-square-o{ aria: { hidden: true } }
     .menu__user__action--edit
       = link_to edit_user_registration_path do
         %i.fa.fa-cog{ aria: { hidden: true } }
