@@ -12,7 +12,7 @@ class ChatGroupsController < ApplicationController
     if @chat_group.save
       redirect_to chat_group_messages_path(@chat_group), chat_group_id: @chat_group.id
     else
-      new_chat_group_path(@chat_group)
+      render :new
     end
   end
 

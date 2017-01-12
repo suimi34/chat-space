@@ -1,6 +1,9 @@
 .chat-group-form
   %h1 新規チャットグループ
   = form_for(@chat_group) do |f|
+    - if @chat_group.errors.any?
+      = @chat_group.errors.full_messages.each do |message|
+        = message
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         %label.chat-group-form__label{for: "chat_group_name"} グループ名

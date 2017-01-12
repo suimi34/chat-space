@@ -21,3 +21,11 @@
 
 en:
   hello: "Hello world"
+ja:
+  activerecord:
+    errors:
+      models:
+        chat_group:
+          attributes:
+            name:
+              blank: 名前が入力されてません。
