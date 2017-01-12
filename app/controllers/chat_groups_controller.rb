@@ -8,7 +8,8 @@ class ChatGroupsController < ApplicationController
   end
 
   def create
-    @chat_group = ChatGroup.create(name: chat_group_params[:name])
+    binding.pry
+    @chat_group = ChatGroup.create(name: params[:chat_group][:name])
     redirect_to controller: :messages, action: :index, chat_group_id: @chat_group.id
   end
 
@@ -17,10 +18,5 @@ class ChatGroupsController < ApplicationController
   end
 
   def update
-  end
-
-  private
-  def chat_group_params
-    params.require(:chat_group).permit(:name)
   end
 end
