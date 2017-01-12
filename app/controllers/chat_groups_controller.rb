@@ -12,6 +12,7 @@ class ChatGroupsController < ApplicationController
   end
 
   def messages
+    @chat_group = ChatGroup.find(params[:id])
   end
 
   def edit
