@@ -8,8 +8,12 @@ class ChatGroupsController < ApplicationController
   end
 
   def create
-    @chat_group = ChatGroup.create(name: params[:chat_group][:name], user_ids: current_user.id)
-    redirect_to chat_group_messages_path(@chat_group), chat_group_id: @chat_group.id
+    @chat_group = ChatGroup.new(name: params[:chat_group][:name], user_ids: current_user.id)
+    if @chat_group.save
+      redirect_to chat_group_messages_path(@chat_group), chat_group_id: @chat_group.id
+    else
+      new_chat_group_path(@chat_group)
+    end
   end
 
   def edit
