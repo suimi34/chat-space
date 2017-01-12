@@ -8,7 +8,8 @@ class ChatGroupsController < ApplicationController
   end
 
   def create
-    @chat_group = ChatGroup.create(name: params[:chat_group][:name])
+    binding.pry
+    @chat_group = ChatGroup.create(name: params[:chat_group][:name], user_ids: current_user.id)
     redirect_to chat_group_messages_path(@chat_group), chat_group_id: @chat_group.id
   end
 
