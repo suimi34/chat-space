@@ -10,6 +10,7 @@
         %i.fa.fa-cog{ aria: { hidden: true } }
 .menu__group
   .menu__group__name
-    = @chat_group.name
+    - if @chat_group.present?
+      = @chat_group.name
   .menu__group__message
     最新のコメント
