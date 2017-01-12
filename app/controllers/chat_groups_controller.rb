@@ -1,4 +1,5 @@
 class ChatGroupsController < ApplicationController
+
   def index
   end
 
@@ -8,7 +9,7 @@ class ChatGroupsController < ApplicationController
 
   def create
     @chat_group = ChatGroup.create(name: chat_group_params[:name])
-    redirect_to controller: :messages, action: :index, id: @chat_group.id
+    redirect_to controller: :messages, action: :index, chat_group_id: @chat_group.id
   end
 
   def edit

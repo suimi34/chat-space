@@ -1,7 +1,9 @@
 .view__group
   .view__group--edit Edit
   .view__group__info
-    .view__group__info__name 現在のグループ名
+    .view__group__info__name
+      - if @chat_group.present?
+        = @chat_group.name
     .view__group__info__member Members: メンバーの名前
 
 .view__messages
