@@ -12,7 +12,7 @@ class ChatGroupsController < ApplicationController
   def create
     @chat_group = ChatGroup.new(chat_group_params)
     if @chat_group.save
-      redirect_to chat_group_messages_path(@chat_group), chat_group_id: @chat_group.id
+      redirect_to chat_group_messages_path(@chat_group)
     else
       render :new
     end
