@@ -1,5 +1,7 @@
 class ChatGroupsController < ApplicationController
+
   def index
+    @chat_groups = current_user.chat_groups
   end
 
   def new
@@ -7,6 +9,13 @@ class ChatGroupsController < ApplicationController
   end
 
   def create
+    @chat_group = ChatGroup.new(chat_group_params)
+    if @chat_group.save
+      redirect_to chat_group_messages_path(@chat_group), notice: 'チャットグループが作成されました。'
+    else
+      flash[:alert] = '保存に失敗しました。'
+      render :new
+    end
   end
 
   def edit
@@ -14,5 +23,10 @@ class ChatGroupsController < ApplicationController
   end
 
   def update
+  end
+
+  private
+  def chat_group_params
+    params.require(:chat_group).permit(:name, user_ids:[])
   end
 end

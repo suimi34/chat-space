@@ -1,0 +1,14 @@
+.view__group
+  .view__group--edit Edit
+  .view__group__info
+    .view__group__info__name
+      = @chat_group.name if @chat_group.present?
+    .view__group__info__member Members: メンバーの名前
+
+.view__messages
+  = render partial: "message"
+.view__message--new
+  = form_for(@message, url: chat_group_messages_path) do |f|
+    = f.text_field :body, placeholder: "type a message", class: "view__message--new__input"
+    %i.fa.fa-picture-o{ aria: { hidden: true } }
+    = f.submit :Send, class: "view__message--new__button"

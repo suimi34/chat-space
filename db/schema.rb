@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170111052342) do
+ActiveRecord::Schema.define(version: 20170112092541) do
 
   create_table "chat_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -19,12 +19,23 @@ ActiveRecord::Schema.define(version: 20170111052342) do
   end
 
   create_table "group_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "chat_groups_id"
+    t.integer  "chat_group_id"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["chat_groups_id"], name: "index_group_users_on_chat_groups_id", using: :btree
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["chat_group_id"], name: "index_group_users_on_chat_group_id", using: :btree
     t.index ["user_id"], name: "index_group_users_on_user_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "body",          limit: 65535, null: false
+    t.string   "image"
+    t.integer  "chat_group_id",               null: false
+    t.integer  "user_id",                     null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["chat_group_id"], name: "index_messages_on_chat_group_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -46,6 +57,6 @@ ActiveRecord::Schema.define(version: 20170111052342) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "group_users", "chat_groups", column: "chat_groups_id"
+  add_foreign_key "group_users", "chat_groups"
   add_foreign_key "group_users", "users"
 end
