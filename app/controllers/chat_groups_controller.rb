@@ -10,7 +10,7 @@ class ChatGroupsController < ApplicationController
   end
 
   def create
-    @chat_group = ChatGroup.new(name: chat_group_params[:name], user_ids: current_user.id)
+    @chat_group = ChatGroup.new(chat_group_params)
     if @chat_group.save
       redirect_to chat_group_messages_path(@chat_group), chat_group_id: @chat_group.id
     else
@@ -27,6 +27,6 @@ class ChatGroupsController < ApplicationController
 
   private
   def chat_group_params
-    params.require(:chat_group).permit(:name)
+    params.require(:chat_group).permit(:name, user_ids:[])
   end
 end
