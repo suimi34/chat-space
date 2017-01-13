@@ -1,6 +1,8 @@
 class ChatGroupsController < ApplicationController
 
   def index
+    group_user_ids = current_user.chat_group_ids
+    @chat_groups = group_user_ids.map{ |id| ChatGroup.find(id) }
   end
 
   def new
@@ -8,7 +10,6 @@ class ChatGroupsController < ApplicationController
   end
 
   def create
-    binding.pry
     @chat_group = ChatGroup.new(name: chat_group_params[:name], user_ids: current_user.id)
     if @chat_group.save
       redirect_to chat_group_messages_path(@chat_group), chat_group_id: @chat_group.id

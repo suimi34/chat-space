@@ -9,7 +9,7 @@
       = link_to edit_user_registration_path do
         %i.fa.fa-cog{ aria: { hidden: true } }
 .menu__group
-  - if @chat_group.present?
+  - if @chat_groups.present?
     - @chat_groups.each do |chat_group|
       .menu__group__name
         = chat_group.name
