@@ -1,8 +1,7 @@
 class ChatGroupsController < ApplicationController
 
   def index
-    group_user_ids = current_user.chat_group_ids
-    @chat_groups = group_user_ids.map{ |id| ChatGroup.find(id) }
+    @chat_groups = current_user.chat_groups
   end
 
   def new
