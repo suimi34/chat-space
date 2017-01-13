@@ -1,6 +1,6 @@
 .chat-group-form
   %h1 チャットグループ編集
-  = form_for(@chat_group) do |f|
+  = form_for(@chat_group, url: chat_group_path, method: :patch) do |f|
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         = f.label :name, "グループ名", class: "chat-group-form__label"
