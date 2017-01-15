@@ -11,7 +11,8 @@
 .menu__group
   - if @chat_groups.present?
     - @chat_groups.each do |chat_group|
-      .menu__group__name
-        = chat_group.name
-      .menu__group__message
-        最新のコメント
+      = link_to chat_group_messages_path(chat_group), class: "menu__group__info" do
+        .menu__group__info__name
+          = chat_group.name
+        .menu__group__info__message
+          最新のコメント
