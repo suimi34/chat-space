@@ -3,7 +3,12 @@
   .view__group__info
     .view__group__info__name
       = @chat_group.name if @chat_group.present?
-    .view__group__info__member Members: メンバーの名前
+    .view__group__info__member
+      - @users.each_with_index do |user, i|
+        - if i == 0
+          = "Member: " + user.name
+        - else
+          = user.name
 
 .view__messages
   = render partial: "message"

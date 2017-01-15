@@ -24,7 +24,6 @@ class ChatGroupsController < ApplicationController
 
   def update
     chat_group = ChatGroup.find(params[:id])
-    binding.pry
     chat_group.update(chat_group_params)
     redirect_to chat_group_messages_path(chat_group)
   end
