@@ -8,8 +8,13 @@ class MessagesController < ApplicationController
   end
 
   def create
-    binding.pry
-    @message = Message.create(message_params)
+    @message = Message.new(message_params)
+    if @message.save
+      redirect_to chat_group_messages_path(@chat_group)
+    else
+      flash[:alert] = "メッセージが入力されていません。"
+      redirect_to chat_group_messages_path(@chat_group)
+    end
   end
 
   private
