@@ -52,14 +52,22 @@ body {
       padding: 0 20px 0;
       background-color: #2f3e51;
       height: calc(100vh - 100px);
-      &__name {
-        font-size: 15px;
-        padding: 20px 0 2.5px;
-      }
 
-      &__message {
-        font-size: 11px;
-        padding: 2.5px 0 40px 0;
+      &__info {
+        cursor: pointer;
+        text-decoration: none;
+
+        &__name {
+          font-size: 15px;
+          padding: 20px 0 2.5px;
+          color: $white;
+        }
+
+        &__message {
+          font-size: 11px;
+          padding: 2.5px 0 20px 0;
+          color: $white;
+        }
       }
     }
   }
@@ -81,6 +89,7 @@ body {
         margin: 28px 40px 0 0;
         padding: 0 20px;
         float: right;
+        text-decoration: none;
 
       }
       &__info {
