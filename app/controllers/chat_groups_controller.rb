@@ -1,6 +1,6 @@
 class ChatGroupsController < ApplicationController
 
-  before_action :set_chat_group, only: [:edit, :update]
+  before_action :set_chat_group, only: %i[edit update]
 
   def index
     @chat_groups = current_user.chat_groups
