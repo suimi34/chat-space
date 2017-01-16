@@ -1,13 +1,13 @@
 class MessagesController < ApplicationController
 
+  before_action :set_chat_group_info
+
   def index
-    set_chat_group_info
     @chat_groups = current_user.chat_groups
     @message = Message.new
   end
 
   def create
-    set_chat_group_info
     @message = Message.create(body: message_params[:body], chat_group_id: @chat_group.id, user_id: current_user.id)
   end
 
