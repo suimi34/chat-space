@@ -23,14 +23,18 @@ class ChatGroupsController < ApplicationController
   end
 
   def update
-    chat_group = ChatGroup.find(params[:id])
-    chat_group.update(chat_group_params)
-    redirect_to chat_group_messages_path(chat_group)
+    @chat_group = ChatGroup.find(params[:id])
+    if @chat_group.update(chat_group_params)
+      redirect_to chat_group_messages_path(@chat_group), notice: 'チャットグループが更新されました。'
+    else
+      flash[:alert] = '保存に失敗しました。'
+      render :edit
+    end
   end
 
   private
   def chat_group_params
-    params.require(:chat_group).permit(:name, user_ids:[])
+    params.require(:chat_group).permit(:name, user_ids: [])
   end
 end
 
