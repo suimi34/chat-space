@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
   def index
     @chat_groups = current_user.chat_groups
     @message = Message.new
+    @messages = @chat_group.messages
   end
 
   def create
