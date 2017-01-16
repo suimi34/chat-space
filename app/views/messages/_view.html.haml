@@ -9,7 +9,7 @@
         = user.name
 
 .view__messages
-  = render partial: "message"
+  = render "message"
 .view__message--new
   = form_for(@message, url: chat_group_messages_path) do |f|
     = f.text_field :body, placeholder: "type a message", class: "view__message--new__input"
