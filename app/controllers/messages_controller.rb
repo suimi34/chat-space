@@ -8,12 +8,13 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.create(body: message_params[:body], chat_group_id: @chat_group.id, user_id: current_user.id)
+    binding.pry
+    @message = Message.create(message_params)
   end
 
   private
   def message_params
-    params.require(:message).permit(:body)
+    params.require(:message).permit(:body).merge(chat_group_id: params[:chat_group_id], user_id: current_user.id)
   end
 
   def set_chat_group_info
