@@ -19,11 +19,11 @@ class ChatGroupsController < ApplicationController
   end
 
   def edit
-    @chat_group = ChatGroup.find(params[:id])
+    set_chat_group
   end
 
   def update
-    @chat_group = ChatGroup.find(params[:id])
+    set_chat_group
     if @chat_group.update(chat_group_params)
       redirect_to chat_group_messages_path(@chat_group), notice: 'チャットグループが更新されました。'
     else
@@ -35,6 +35,10 @@ class ChatGroupsController < ApplicationController
   private
   def chat_group_params
     params.require(:chat_group).permit(:name, user_ids: [])
+  end
+
+  def set_chat_group
+    @chat_group = ChatGroup.find(params[:id])
   end
 end
 
