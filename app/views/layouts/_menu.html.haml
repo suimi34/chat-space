@@ -15,4 +15,4 @@
         .menu__group__info__name
           = chat_group.name
         .menu__group__info__message
-          最新のコメント
+          = chat_group.messages.last.try(:body)
