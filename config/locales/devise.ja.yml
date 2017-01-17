@@ -19,6 +19,10 @@ ja:
             password_confirmation:
               blank: 確認用パスワードが空です
               confirmation: 確認用パスワードが一致しません
+        message:
+          attributes:
+            body:
+              blank: メッセージが入力されていません。
   devise:
     confirmations:
       confirmed: 'アカウントを登録しました。'
