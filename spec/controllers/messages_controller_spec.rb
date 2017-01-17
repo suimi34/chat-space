@@ -12,7 +12,8 @@ describe MessagesController do
 
     it "renders the :index template" do
       chat_group = create(:chat_group)
-      get :index, params: { id: chat_group.id }, use_routes: chat_group_messages_path(@message)
+      message = create(:message, chat_group_id: chat_group.id)
+      get :index, params: { id: message.chat_group_id }, use_routes: chat_group_messages_path(message)
       expect(response).to render_template :index
     end
   end
