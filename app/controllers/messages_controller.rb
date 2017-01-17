@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
 
-  before_action :set_chat_group_info, only: %i[index create]
+  # before_action :set_chat_group_info, only: %i[index create]
 
   def index
     @chat_groups = current_user.chat_groups
