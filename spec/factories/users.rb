@@ -1,9 +1,11 @@
 FactoryGirl.define do
 
+  sample_password = Faker::Internet.password(8)
+
   factory :user do
-    name                      "ishikawa"
-    email                     "aaa@com"
-    password                  "12345678"
-    password_confirmation     "12345678"
+    name                      { Faker::Name.name }
+    email                     { Faker::Internet.email }
+    password                  sample_password
+    password_confirmation     sample_password
   end
 end
