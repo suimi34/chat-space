@@ -3,6 +3,11 @@ require 'faker'
 require 'messages_controller'
 
 describe MessagesController do
+  before do
+    @user = create(:user)
+    sign_in @user
+  end
+
   describe "GET #index" do
     it "populates an array of messages" do
       messages = create_list(:message, 5, chat_group_id: 1)
