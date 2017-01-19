@@ -1,12 +1,14 @@
 require 'rails_helper'
 
 describe MessagesController, type: :controller do
+  let(:user) { create(:user) }
+  let(:chat_group) { create(:chat_group) }
+
+  before do
+    sign_in user
+  end
+
   describe "GET #index" do
-    let(:user) { create(:user) }
-    let(:chat_group) { create(:chat_group) }
-    before do
-      sign_in user
-    end
 
     it "renders the :index template" do
       chat_group
@@ -45,6 +47,16 @@ describe MessagesController, type: :controller do
       chat_groups = user.chat_groups
       get :index, params: { chat_group_id: chat_group }
       expect(assigns(:chat_groups)).to match_array(chat_groups)
+    end
+  end
+
+  describe "POST #create" do
+
+    it "renders the :create template after message saves" do
+      chat_group
+      message = create(:message)
+      post :create, params: { chat_group_id: chat_group }
+      expect(response).to redirect_to chat_group_messages_path(chat_group)
     end
   end
 end
