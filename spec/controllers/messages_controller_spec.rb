@@ -9,17 +9,17 @@ describe MessagesController, type: :controller do
       sign_in user
     end
 
+    it "renders the :index template" do
+      chat_group
+      get :index, params: { chat_group_id: chat_group }
+      expect(response).to render_template :index
+    end
+
     it "populates an array of messages" do
       chat_group
       messages = create_list(:message, 5, chat_group_id: chat_group.id)
       get :index, params: { chat_group_id: chat_group }
       expect(assigns(:messages)).to match_array(messages)
-    end
-
-    it "renders the :index template" do
-      chat_group
-      get :index, params: { chat_group_id: chat_group }
-      expect(response).to render_template :index
     end
 
     it "populates a variable of message" do
