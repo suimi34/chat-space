@@ -35,5 +35,13 @@ describe MessagesController, type: :controller do
       get :index, params: { chat_group_id: chat_group }, use_routes: chat_group_messages_path(chat_group)
       expect(assigns(:chat_group)).to eq chat_group
     end
+
+    it "populates an array of users" do
+      chat_group = create(:chat_group)
+      users = chat_group.users
+      binding.pry
+      get :index, params: { chat_group_id: chat_group }, use_routes: chat_group_messages_path(chat_group)
+      expect(assigns(:users)).to match_array(users)
+    end
   end
 end
