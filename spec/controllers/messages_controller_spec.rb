@@ -22,5 +22,12 @@ describe MessagesController, type: :controller do
       get :index, params: { chat_group_id: chat_group }, use_routes: chat_group_messages_path(chat_group)
       expect(response).to render_template :index
     end
+
+    it "populates a variable of message" do
+      chat_group = create(:chat_group)
+      message = create(:message)
+      get :index, params: { chat_group_id: chat_group }, use_routes: chat_group_messages_path(chat_group)
+      expect(assigns(:message)).to be_a_new(Message)
+    end
   end
 end
