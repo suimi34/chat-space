@@ -6,7 +6,6 @@ describe MessagesController, type: :controller do
   describe "GET #index" do
     let(:user) { FactoryGirl.build(:user) }
     before do
-      user = create(:user)
       sign_in user
     end
 
