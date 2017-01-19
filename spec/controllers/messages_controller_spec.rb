@@ -1,6 +1,5 @@
 require 'rails_helper'
 require 'faker'
-require 'messages_controller'
 
 describe MessagesController, type: :controller do
   describe "GET #index" do
