@@ -4,8 +4,8 @@ require 'messages_controller'
 
 describe MessagesController, type: :controller do
   describe "GET #index" do
-    let(:user) { FactoryGirl.create(:user) }
-    let(:chat_group) { FactoryGirl.create(:chat_group) }
+    let(:user) { create(:user) }
+    let(:chat_group) { create(:chat_group) }
     before do
       sign_in user
     end
