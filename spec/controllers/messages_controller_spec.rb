@@ -60,8 +60,11 @@ describe MessagesController, type: :controller do
       change(Message, :count).by(1)
     end
 
-    it "renders the :create template after message saves" do
-      post :create, params: { message: { chat_group_id: chat_group, user_id: user } }
+    it "redirects to chat_group_messages_path" do
+      chat_group
+      message = build(:message, chat_group_id: chat_group.id, user_id: user.id)
+      binding.pry
+      post :create,  params: {chat_group_id: chat_group.id, message: { body: message.body } }
       expect(response).to redirect_to chat_group_messages_path(chat_group)
     end
   end
