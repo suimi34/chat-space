@@ -54,10 +54,10 @@ describe MessagesController, type: :controller do
 
     it "creates new message in database" do
       chat_group
-      message = attributes_for(:message, chat_group_id: chat_group.id, user_id: user.id)
-      chat_group_id = message[:chat_group_id]
-      post :create, params: { message[:chat_group_id] }
-      expect().to change(Message, :count).by(1)
+      message = build(:message, chat_group_id: chat_group.id, user_id: user.id)
+      binding.pry
+      post :create,  params: {chat_group_id: chat_group.id, message: { body: message.body } }
+      change(Message, :count).by(1)
     end
 
     it "renders the :create template after message saves" do
