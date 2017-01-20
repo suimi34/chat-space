@@ -3,11 +3,15 @@ FactoryGirl.define do
   sample_time = Faker::Time.between(2.days.ago, Time.now, :all)
 
   factory :message do
-    body                      { Faker::Lorem.words }
+    body                      { Faker::Lorem.word }
     image                     { Faker::File.file_name }
     chat_group_id             { Faker::Number.between }
     user_id                   { Faker::Number.between }
     created_at                sample_time
     updated_at                sample_time
+
+    trait :as_invalid_input do
+      body nil
+    end
   end
 end
