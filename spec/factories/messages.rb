@@ -9,5 +9,9 @@ FactoryGirl.define do
     user_id                   { Faker::Number.between }
     created_at                sample_time
     updated_at                sample_time
+
+    trait :as_invalid_input do
+      body nil
+    end
   end
 end
