@@ -3,9 +3,6 @@ require 'rails_helper'
 describe MessagesController, type: :controller do
   let(:user) { create(:user) }
   let(:chat_group) { create(:chat_group) }
-  let(:chat_group) do
-    chat_group = user.chat_groups[0]
-  end
 
   before do
     sign_in user
