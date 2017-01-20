@@ -67,5 +67,13 @@ describe MessagesController, type: :controller do
       post :create,  params: {chat_group_id: chat_group.id, message: { body: message.body } }
       expect(response).to redirect_to chat_group_messages_path(chat_group)
     end
+
+    it "fails to save if input is invalid" do
+      chat_group
+      message = build(:message, :as_invalid_input)
+      post :create,  params: {chat_group_id: chat_group.id, message: { body: message.body } }
+      expect(flash[:alert]).to match("メッセージが入力されていません。")
+      expect(response).to redirect_to chat_group_messages_path(chat_group)
+    end
   end
 end
