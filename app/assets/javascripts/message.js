@@ -1,10 +1,10 @@
 $(function() {
     function buildHtmlName(message) {
-      var htmlName = $('class="view__messages_message__name').append(message.name);
+      var htmlName = $('.view__messages__message__name').append(message.name);
       return htmlName;
     }
     function buildHtmlDate(message) {
-      var htmlDate = $('class="view__messages_message__date').append(message.date);
+      var htmlDate = $('.view__messages__message__date').append(message.date);
       return htmlDate;
     }
     function buildHtmlBody(message) {
