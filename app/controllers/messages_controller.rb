@@ -13,7 +13,9 @@ class MessagesController < ApplicationController
     if @message.save
       respond_to do |format|
         format.html { redirect_to redirect_to chat_group_messages_path(@chat_group) }
-        format.json { render json: @chat_group }
+        format.json {
+          render json: { message: @message }
+        }
       end
     else
       flash[:alert] = "メッセージが入力されていません。"
