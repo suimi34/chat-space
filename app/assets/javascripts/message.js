@@ -1,35 +1,26 @@
 $(function() {
-    function buildHtmlName(message) {
-      var htmlName = $('.view__messages__message__name').append(message.name);
-      return htmlName;
-    }
-    function buildHtmlDate(message) {
-      var htmlDate = $('.view__messages__message__date').append(message.date);
-      return htmlDate;
-    }
-    function buildHtmlBody(message) {
-      var htmlBody = $('.view__messages__message__body').append(message.body);
-      return htmlBody;
-    }
+  function buildHtmlBody(message) {
+    var html = $('.view__messages__message').append(message);
+    return html;
+  }
 
-  $('.view__message--new').on('submit', function(e){
-    e.preventDefault();
+  $('.view__message--new').on('submit', function(){
     var messageInput = $('.view__message--new__input');
     var message = messageInput.val();
 
     $.ajax({
       type: 'POST',
-      url: '/chat_groups/chat_group_id/messages.json',
+      url: gon.url,
       data: {
-        messages: {
+        message: {
           body: message
         }
       },
       dataType: 'json'
     })
     .done(function(data) {
-      var htmlBody = buildHtmlBody(message);
-      $('.view__messages__message').append(htmlBody);
+      var html = buildHtmlBody(message);
+      $('.view__messages').push(html);
       messageInput.val('');
     })
     .fail(function() {

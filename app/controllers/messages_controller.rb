@@ -9,13 +9,12 @@ class MessagesController < ApplicationController
   end
 
   def create
+    gon.url = '/chat_groups/#{@chat_group.id}/messages.json'
     @message = Message.new(message_params)
     if @message.save
       respond_to do |format|
         format.html { redirect_to redirect_to chat_group_messages_path(@chat_group) }
-        format.json {
-          render json: { message: @message }
-        }
+        format.json { render json: @message }
       end
     else
       flash[:alert] = "メッセージが入力されていません。"
