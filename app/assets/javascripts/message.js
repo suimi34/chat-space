@@ -1,15 +1,21 @@
 $(function() {
+  function buildHtmlName(message) {
+    var htmlName = $('<div class="view__messages__message__name">').append(message.name);
+    return htmlName;
+  }
+  function buildHtmlDate(message) {
+    var htmlDate = $('<div class="view__messages__message__date">').append(message.date);
+    return htmlDate;
+  }
   function buildHtmlBody(message) {
-    var html = $('<div class="view__messages__message__body">').append(message);
-    return html;
+    var htmlBody = $('<div class="view__messages__message__body">').append(message.body);
+    return htmlBody;
   }
 
-  $('.view__message--new').on('submit', function(){
+  $('.view__message--new').on('submit', function(e){
+    e.preventDefault();
     var messageInput = $('.view__message--new__input');
     var message = messageInput.val();
-    var html = buildHtmlBody(message);
-    var element = $("<div>", { class: "view__messages__message"}).append(html);
-    $('.view__messages').append(element);
 
     $.ajax({
       type: 'POST',
@@ -21,7 +27,13 @@ $(function() {
       },
       dataType: 'json'
     })
-    .done(function(data) {
+    .done(function(message) {
+      var htmlName = buildHtmlName(message);
+      var htmlDate = buildHtmlDate(message);
+      var htmlBody = buildHtmlBody(message);
+
+      var element = $("<div>", { class: "view__messages__message"}).append(htmlName).append(htmlDate).append(htmlBody);
+      $('.view__messages').append(element);
       messageInput.val('');
     })
     .fail(function() {
