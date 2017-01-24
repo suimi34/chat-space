@@ -1,4 +1,4 @@
 json.name @message.user.name
-json.date @message.current_time
+json.date @message.post_time
 json.body @message.body
 
