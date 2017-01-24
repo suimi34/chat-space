@@ -1,15 +1,11 @@
 $(function() {
-  function buildHtmlName(message) {
+  function buildHtml(message) {
     var htmlName = $('<div class="view__messages__message__name">').append(message.name);
-    return htmlName;
-  }
-  function buildHtmlDate(message) {
     var htmlDate = $('<div class="view__messages__message__date">').append(message.date);
-    return htmlDate;
-  }
-  function buildHtmlBody(message) {
     var htmlBody = $('<div class="view__messages__message__body">').append(message.body);
-    return htmlBody;
+    var element = $("<div>", { class: "view__messages__message" }).append(htmlName, htmlDate, htmlBody);
+    var html = $('.view__messages').append(element);
+    return html;
   }
 
   $('.view__message--new').on('submit', function(e){
@@ -28,12 +24,7 @@ $(function() {
       dataType: 'json'
     })
     .done(function(message) {
-      var htmlName = buildHtmlName(message);
-      var htmlDate = buildHtmlDate(message);
-      var htmlBody = buildHtmlBody(message);
-
-      var element = $("<div>", { class: "view__messages__message"}).append(htmlName).append(htmlDate).append(htmlBody);
-      $('.view__messages').append(element);
+      var html = buildHtml(message);
       messageInput.val('');
     })
     .fail(function() {
