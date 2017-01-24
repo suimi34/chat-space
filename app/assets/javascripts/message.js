@@ -15,7 +15,7 @@ $(function() {
 
     $.ajax({
       type: 'POST',
-      url: gon.url,
+      url: 'messages',
       data: {
         message: {
           body: message

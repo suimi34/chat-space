@@ -9,7 +9,6 @@ class MessagesController < ApplicationController
   end
 
   def create
-    gon.url = '/chat_groups/#{@chat_group.id}/messages.json'
     @message = Message.new(message_params)
     if @message.save
       respond_to do |format|
