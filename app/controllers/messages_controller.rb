@@ -14,13 +14,7 @@ class MessagesController < ApplicationController
     if @message.save
       respond_to do |format|
         format.html { redirect_to redirect_to chat_group_messages_path(@chat_group) }
-        format.json { render json:
-          {
-            name: @message.user.name,
-            date: @message.created_at.strftime("\t%Y/%m/%d/ %H:%M:%S"),
-            body: @message.body
-          }
-        }
+        format.json { render 'create', handlers: 'jbuilder' }
       end
     else
       flash[:alert] = "メッセージが入力されていません。"
