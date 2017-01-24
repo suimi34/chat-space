@@ -1,4 +1,4 @@
 json.name @message.user.name
-json.date @message.created_at.strftime("\t%Y/%m/%d/ %H:%M:%S")
+json.date @message.current_time
 json.body @message.body
 

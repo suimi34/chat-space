@@ -3,6 +3,6 @@
     .view__messages__message__name
       = message.user.name
     .view__messages__message__date
-      = message.created_at.strftime("%Y/%m/%d/ %H:%M:%S")
+      = message.current_time
     .view__messages__message__body
       = message.body
