@@ -5,6 +5,6 @@ class Message < ApplicationRecord
   belongs_to :chat_group
 
   def post_time
-    post_time = created_at.strftime("%Y/%m/%d/ %H:%M:%S")
+    return created_at.strftime("%Y/%m/%d/ %H:%M:%S")
   end
 end
