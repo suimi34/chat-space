@@ -12,16 +12,16 @@
       .chat-group-form__field--right
         .chat-group-form__search.clearfix
           = f.text_field :user_ids, class: "chat-group-form__input"
+        = @users.each do |user|
+          .chat-group-form__result.clearfix
+            .chat-group-form__result__name
+              = user.name
+            .chat-group-form__result__add 追加
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         = f.label :user_ids, "チャットメンバー", class: "chat-group-form__label"
       .chat-group-form__field--right
-        .chat-group-form__result.clearfix
-          = @users.each do |user|
-            .chat-group-form__result
-              .chat-group-form__result__name
-                = user.name
-              .chat-group-form__result__add 追加
+      / ここにメンバーが追加される
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
