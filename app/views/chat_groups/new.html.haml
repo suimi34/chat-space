@@ -1,6 +1,6 @@
 .chat-group-form
   %h1 新規チャットグループ
-  = form_for(@chat_group) do |f|
+  = form_for(@chat_group, html: { id: "new_chat_group" }, remote: true) do |f|
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         = f.label :name, "グループ名", class: "chat-group-form__label"
@@ -8,10 +8,20 @@
         = f.text_field :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください"
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
-        = f.label :user_ids, "チャットメンバー", class: "chat-group-form__label"
+        = f.label :user_ids, "チャットメンバーを追加", class: "chat-group-form__label"
       .chat-group-form__field--right
         .chat-group-form__search.clearfix
-          = f.collection_check_boxes :user_ids, User.all, :id, :name, class: "chat-group-form__input"
+          = f.text_field :user_ids, class: "chat-group-form__input"
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        = f.label :user_ids, "チャットメンバー", class: "chat-group-form__label"
+      .chat-group-form__field--right
+        .chat-group-form__result.clearfix
+          = @users.each do |user|
+            .chat-group-form__result
+              .chat-group-form__result__name
+                = user.name
+              .chat-group-form__result__add 追加
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right

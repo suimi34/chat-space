@@ -8,12 +8,16 @@ class ChatGroupsController < ApplicationController
 
   def new
     @chat_group = ChatGroup.new
+    @users = User.all
   end
 
   def create
     @chat_group = ChatGroup.new(chat_group_params)
     if @chat_group.save
-      redirect_to chat_group_messages_path(@chat_group), notice: 'チャットグループが作成されました。'
+      respond_to do |format|
+        format.html { redirect_to chat_group_messages_path(@chat_group), notice: 'チャットグループが作成されました。' }
+        format.json
+      end
     else
       flash[:alert] = '保存に失敗しました。'
       render :new
