@@ -10,7 +10,7 @@
 
 .view__messages
   = render "message"
-.view__message--new
+#new_message.view__message--new
   = form_for(@message, url: chat_group_messages_path) do |f|
     = f.text_field :body, placeholder: "type a message", class: "view__message--new__input"
     %i.fa.fa-picture-o{ aria: { hidden: true } }

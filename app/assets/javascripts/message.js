@@ -8,20 +8,17 @@ $(function() {
     return html;
   }
 
-
-  $('.view__message--new').on('submit', function(e){
+  $('#new_message').on('submit', function(e){
     e.preventDefault();
     var messageInput = $('.view__message--new__input');
-    var message = messageInput.val();
+    var fd = new FormData($('form#new_message').get(0));
 
     $.ajax({
       type: 'POST',
-      url: 'messages',
-      data: {
-        message: {
-          body: message
-        }
-      },
+      url: './messages.json',
+      data: fd,
+      processData: false,
+      contentType: false,
       dataType: 'json'
     })
     .done(function(message) {
