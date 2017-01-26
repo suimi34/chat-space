@@ -11,7 +11,7 @@
 .view__messages
   = render @messages
 .view__message--new
-  = form_for(@message, url: chat_group_messages_path, html: { id: "new__message" }) do |f|
+  = form_for([@chat_group, @message], html: { id: "new__message" }) do |f|
     = f.text_field :body, placeholder: "type a message", class: "view__message--new__input"
     %i.fa.fa-picture-o{ aria: { hidden: true } }
     = f.submit :Send, class: "view__message--new__button"
