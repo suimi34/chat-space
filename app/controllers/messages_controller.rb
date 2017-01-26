@@ -23,7 +23,7 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:body).merge(chat_group_id: params[:chat_group_id], user_id: current_user.id)
+    params.require(:message).permit(:body).merge(chat_group_id: @chat_group.id, user_id: current_user.id)
   end
 
   def set_chat_group_info

@@ -8,10 +8,10 @@ $(function() {
     return html;
   }
 
-  $('#new_message').on('submit', function(e){
+  $('#new__message').on('submit', function(e){
     e.preventDefault();
     var messageInput = $('.view__message--new__input');
-    var fd = new FormData($('form#new_message').get(0));
+    var fd = new FormData($(this).get(0));
 
     $.ajax({
       type: 'POST',
