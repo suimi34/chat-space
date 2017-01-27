@@ -8,6 +8,7 @@ class ChatGroupsController < ApplicationController
 
   def new
     @chat_group = ChatGroup.new
+    @chat_group.users.build
     @users = User.all.limit(5)
     # @users = ChatGroup.includes(:users).where(chat_group_users: { user_id: @chat_group.users.ids }).references(:users)
   end
@@ -15,10 +16,7 @@ class ChatGroupsController < ApplicationController
   def create
     @chat_group = ChatGroup.new(chat_group_params)
     if @chat_group.save
-      respond_to do |format|
-        format.html { redirect_to chat_group_messages_path(@chat_group), notice: 'チャットグループが作成されました。' }
-        format.json
-      end
+      redirect_to chat_group_messages_path(@chat_group), notice: 'チャットグループが作成されました。'
     else
       flash[:alert] = '保存に失敗しました。'
       render :new
@@ -26,6 +24,7 @@ class ChatGroupsController < ApplicationController
   end
 
   def edit
+    @users = User.all.limit(5)
   end
 
   def update

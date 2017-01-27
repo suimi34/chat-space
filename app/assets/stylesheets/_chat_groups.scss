@@ -37,7 +37,7 @@
   &__field {
     @include clearfix();
     margin-top: 30px;
-    height: 50px;
+    min-height: 50px;
 
     &--left {
       float: left;
