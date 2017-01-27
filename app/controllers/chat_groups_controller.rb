@@ -8,7 +8,8 @@ class ChatGroupsController < ApplicationController
 
   def new
     @chat_group = ChatGroup.new
-    @users = User.all
+    @users = User.all.limit(5)
+    # @users = ChatGroup.includes(:users).where(chat_group_users: { user_id: @chat_group.users.ids }).references(:users)
   end
 
   def create

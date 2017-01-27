@@ -34,7 +34,16 @@
     }
   }
 
+  // &__clearfix {
+  //   @include clearfix();
+  // }
+
   &__field {
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
     margin-top: 30px;
     height: 50px;
 
@@ -49,6 +58,41 @@
     &--right {
       float: right;
       width: 70%;
+    }
+
+    .chat-group-user {
+      padding: 0 15px;
+      line-height: 50px;
+      font-size: 14px;
+      border-bottom: $mainBorder;
+      &:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+
+      &__name {
+        float: left;
+      }
+
+      &__btn {
+        float: right;
+        cursor: pointer;
+        border: none;
+
+        &--add {
+          color: $lightBlue;
+          cursor: pointer;
+          outline: none;
+          appearance: none;
+          border-style: none;
+          background-color: transparent;
+        }
+
+        &--remove {
+          color: #f05050;
+        }
+      }
     }
 
     .chat-group-form__label {
@@ -66,46 +110,21 @@
       box-sizing: border-box;
     }
 
-    .chat-group-form__result {
-      border-bottom: $mainBorder;
-      list-style: none;
-      line-height: 50px;
+    // .chat-group-form__result {
+    //   border-bottom: $mainBorder;
+    //   list-style: none;
+    //   line-height: 50px;
 
-      &__name {
-        display: inline-block;
-      }
+    //   &__name {
+    //     display: inline-block;
+    //   }
 
-      &__add {
-        float: right;
-        color: $lightBlue;
-        cursor: pointer;
-      }
-    }
-  }
-
-  .chat-group-user {
-    padding: 0 15px;
-    line-height: 50px;
-    font-size: 14px;
-    border-bottom: $mainBorder;
-
-    &__name {
-      float: left;
-    }
-
-    &__btn {
-      float: right;
-      display: inline-block;
-      cursor: pointer;
-
-      &--add {
-        color: $lightBlue;
-      }
-
-      &--remove {
-        color: #f05050;
-      }
-    }
+    //   &__add {
+    //     float: right;
+    //     color: $lightBlue;
+    //     cursor: pointer;
+    //   }
+    // }
   }
 
   &__action-btn {
