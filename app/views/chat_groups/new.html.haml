@@ -6,26 +6,26 @@
         = f.label :name, "グループ名", class: "chat-group-form__label"
       .chat-group-form__field--right
         = f.text_field :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください"
-    .chat-group-form__field.clearfix
+    .chat-group-form__field
       .chat-group-form__field--left
         .chat-group-form__label チャットメンバーを追加
       #result.chat-group-form__field--right
-        = f.text_field :user_ids, class: "chat-group-form__input"
+        = f.text_field :user_ids, class: "chat-group-form__input", placeholder: "追加したいユーザー名を入力してください"
         - @users.each do |user|
-          .chat-group-user.clearfix
-            .chat-group-user__name
+          #user_info.chat-group-user
+            %p.chat-group-user__name
               = user.name
             .chat-group-user__btn
-              #btn.chat-group-user__btn--add 追加
-    .chat-group-form__field.clearfix
+              %p#btn.chat-group-user__btn--add{ data: { user: { id: user.id } } } 追加
+    .chat-group-form__field
       .chat-group-form__field--left
         .chat-group-form__label チャットメンバー
       #added_users.chat-group-form__field--right
-        = f.hidden_field :user_ids
+        = f.hidden_field :user_ids, value: params[:id]
         .chat-group-user
           .chat-group-user__name
             = current_user.name
-    .chat-group-form__field.clearfix
+    .chat-group-form__field
       .chat-group-form__field--left
       .chat-group-form__field--right
         = f.submit "Save", class: "chat-group-form__action-btn"
