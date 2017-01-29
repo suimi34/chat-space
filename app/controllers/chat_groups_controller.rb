@@ -22,7 +22,7 @@ class ChatGroupsController < ApplicationController
   end
 
   def edit
-    @users = User.all.limit(5)
+    @users = User.joins(:chat_groups).where.not(chat_groups: { id: @chat_group.id }).distinct
   end
 
   def update
