@@ -23,6 +23,7 @@
       #added_users.chat-group-form__field--right
         .chat-group-user
           .chat-group-user__name
+            = f.hidden_field :user_ids, name: "chat_group[user_ids][]", value: current_user.id
             = current_user.name
     .chat-group-form__field
       .chat-group-form__field--left
