@@ -7,7 +7,7 @@ $(function() {
       this.textContent = "削除";
       var addUser = $(this).parents('.chat-group-user');
       var ele = document.createElement('input');
-      ele.id = "hidden_id"
+      ele.id = "hidden_id";
       ele.type = "hidden";
       ele.name = "chat_group[user_ids][]";
       ele.style = "border:none";
@@ -16,13 +16,13 @@ $(function() {
       addUser.append(ele);
       $("#added_users").append(addUser);
     } else {
-      var removeUserId = $("#hidden_id").val();
-      var inputElement = document.getElementById('hidden_id');
+      var removeUser = $(this).parents('.chat-group-user');
+      var removeUserInput = removeUser.children('input');
+      var removeUserId = removeUserInput.val();
       $(this).removeClass("chat-group-user__btn--remove").addClass("chat-group-user__btn--add");
       this.textContent = "追加";
       $(this).attr('data-user-id', removeUserId);
-      inputElement.remove();
-      var removeUser = $(this).parents('.chat-group-user');
+      removeUserInput.remove();
       $("#user_info").append(removeUser);
     }
   });

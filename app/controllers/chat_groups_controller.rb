@@ -22,8 +22,8 @@ class ChatGroupsController < ApplicationController
   end
 
   def edit
-    @users = User.joins(:chat_groups).where.not(chat_groups: { id: @chat_group.id }).distinct
-    @listed_users = User.joins(:chat_groups).where(chat_groups: { id: @chat_group.id }).where.not(users: { id: current_user.id })
+    @users = User.joins(:chat_groups).where.not(users: { id: @chat_group.user_ids }).distinct
+    @listed_users = @chat_group.users.where.not(users: { id: current_user.id })
   end
 
   def update
