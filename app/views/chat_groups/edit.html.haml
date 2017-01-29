@@ -10,13 +10,13 @@
       .chat-group-form__field--left
         .chat-group-form__label チャットメンバーを追加
       #result.chat-group-form__field--right
-        = f.text_field :user_ids, class: "chat-group-form__input"
+        = f.text_field :group_users, value: "", placeholder: "追加したいユーザー名を入力してください", class: "chat-group-form__input"
         - @users.each do |user|
           .chat-group-user.clearfix
             %p.chat-group-user__name
               = user.name
             .chat-group-user__btn
-              %p#btn.chat-group-user__btn--add 追加
+              %p#btn.chat-group-user__btn--add{ data: { user: { id: user.id } } } 追加
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         .chat-group-form__label チャットメンバー
