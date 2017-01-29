@@ -9,6 +9,7 @@ $(function() {
       var addUser = $(this).parents('.chat-group-user');
       var ele = document.createElement('input');
       ele.type = "hidden";
+      ele.name = "chat_group[user_ids][]";
       ele.style = "border:none";
       ele.value = userId;
       addUser.append(ele);
