@@ -18,6 +18,7 @@ $(function() {
       $(this).removeClass("chat-group-user__btn--remove").addClass("chat-group-user__btn--add");
       this.textContent = "追加";
       var removeUser = $(this).parents('.chat-group-user');
+      $(this).data('data-user-id', userId);
       $("#result").append(removeUser);
     }
   });
