@@ -9,10 +9,10 @@
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         .chat-group-form__label チャットメンバーを追加
-      #result.chat-group-form__field--right
+      #user_info.chat-group-form__field--right
         = f.text_field :group_users, value: "", placeholder: "追加したいユーザー名を入力してください", class: "chat-group-form__input"
         - @users.each do |user|
-          .chat-group-user.clearfix
+          #result.chat-group-user.clearfix
             %p.chat-group-user__name
               = user.name
             .chat-group-user__btn
