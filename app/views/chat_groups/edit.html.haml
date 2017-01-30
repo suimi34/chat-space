@@ -2,6 +2,9 @@
   %h1 チャットグループ編集
   = form_for(@chat_group) do |f|
     = render partial: "template", locals: { f: f, user: @users }
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        .chat-group-form__label チャットメンバー
       #added_users.chat-group-form__field--right
         = f.hidden_field :user_ids, name: "chat_group[user_ids][]"
         .chat-group-user
@@ -15,3 +18,7 @@
               .chat-group-user__btn
                 %li.chat-group-user__btn--remove 削除
               = f.hidden_field :user_ids, id: "hidden_id", name: "chat_group[user_ids][]", value: user.id
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+      .chat-group-form__field--right
+        = f.submit "Save", class: "chat-group-form__action-btn"
