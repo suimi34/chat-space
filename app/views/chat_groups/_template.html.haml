@@ -10,7 +10,7 @@
     = f.text_field :group_users, value: "", placeholder: "追加したいユーザー名を入力してください", class: "chat-group-form__input"
     - @users.each do |user|
       .chat-group-user
-        %p.chat-group-user__name
+        .chat-group-user__name
           = user.name
         .chat-group-user__btn
-          %p#btn.chat-group-user__btn--add{ data: { user: { id: user.id } } } 追加
+          %p.chat-group-user__btn--add{ data: { user: { id: user.id } } } 追加
