@@ -14,3 +14,24 @@
           = user.name
         .chat-group-user__btn
           %p.chat-group-user__btn--add{ data: { user: { id: user.id } } } 追加
+.chat-group-form__field.clearfix
+  .chat-group-form__field--left
+    .chat-group-form__label チャットメンバー
+  #added_users.chat-group-form__field--right
+    = f.hidden_field :user_ids, name: "chat_group[user_ids][]"
+    .chat-group-user
+      .chat-group-user__name
+        = current_user.name
+    - if @listed_users.present?
+      - @listed_users.each do |user|
+        .chat-group-user
+          .chat-group-user__name
+            = user.name
+          .chat-group-user__btn
+            %li.chat-group-user__btn--remove 削除
+          = f.hidden_field :user_ids, id: "hidden_id", name: "chat_group[user_ids][]", value: user.id
+.chat-group-form__field.clearfix
+  .chat-group-form__field--left
+  .chat-group-form__field--right
+    = f.submit "Save", class: "chat-group-form__action-btn"
+
