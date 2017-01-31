@@ -18,7 +18,7 @@
   .chat-group-form__field--left
     .chat-group-form__label チャットメンバー
   #added_users.chat-group-form__field--right
-    = f.hidden_field :user_ids, name: "chat_group[user_ids][]"
+    = f.hidden_field :user_ids, name: "chat_group[user_ids][]", value: current_user.id
     .chat-group-user
       .chat-group-user__name
         = current_user.name
@@ -28,7 +28,7 @@
           .chat-group-user__name
             = user.name
           .chat-group-user__btn
-            %li.chat-group-user__btn--remove 削除
+            .chat-group-user__btn--remove 削除
           = f.hidden_field :user_ids, id: "hidden_id", name: "chat_group[user_ids][]", value: user.id
 .chat-group-form__field.clearfix
   .chat-group-form__field--left

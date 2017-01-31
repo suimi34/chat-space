@@ -8,7 +8,7 @@ class ChatGroupsController < ApplicationController
 
   def new
     @chat_group = ChatGroup.new
-    @users = User.all.limit(5)
+    @users = User.all.where.not(users: { id: current_user.id })
   end
 
   def create
@@ -22,8 +22,8 @@ class ChatGroupsController < ApplicationController
   end
 
   def edit
-    @users = User.joins(:chat_groups).where.not(users: { id: @chat_group.user_ids }).distinct
-    @listed_users = @chat_group.users.where.not(users: { id: current_user.id })
+    @users = all_users_without_current_user
+    @listed_users = chat_group_users
   end
 
   def update
