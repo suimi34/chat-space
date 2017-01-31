@@ -40,14 +40,14 @@ $(function() {
 
   $("#keyword").on("keyup", function() {
     var input = $(this).val();
-    var inputs = input.split("").filter(function(e) { return e; });
+    var inputs = input.split(" ").filter(function(e) { return e; });
     var newInputs = inputs.map(editElement);
     var word = newInputs.join("|");
     var reg = RegExp(word);
 
     $.ajax({
       type: 'GET',
-      url: $('form').attr('action'),
+      url: 'user_search',
       data: {
         user: {
           name: reg
@@ -55,8 +55,8 @@ $(function() {
       },
       dataType: 'json'
     })
-    .done(function(message) {
-      var html = buildHtml(message);
+    .done(function(results) {
+      var html = buildHtml(results);
       messageInput.val('');
     })
     .fail(function() {
