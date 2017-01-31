@@ -38,12 +38,31 @@ $(function() {
     return result;
   }
 
+//JSONで戻ってきた配列に対し、１つずつHTML加工処理
+  function buildHtml(results) {
+    $.each(results, function(i, result) {
+      var html = $("<div>", { "class": "chat-group-user" });
+      var htmlName = $('<div class="chat-group-user__name">').append(result.name);
+      var htmlBtn = $("<div>", { "class": "chat-group-user__btn" });
+      var htmlBtnAdd = $("<div>", { "class": "chat-group-user__btn--add", text: "追加" });
+      htmlBtnAdd.attr('user-id', result.id);
+      htmlBtn.append(htmlBtnAdd);
+      html.append(htmlName, htmlBtn);
+      $("#user_info").append(html);
+    });
+  };
+
+//入力フォームに入力されたワードを前方一致の正規表現
   $("#keyword").on("keyup", function() {
     var input = $(this).val();
     var inputs = input.split(" ").filter(function(e) { return e; });
     var newInputs = inputs.map(editElement);
     var word = newInputs.join("|");
     var reg = RegExp(word);
+
+    if (input.length === 0) {
+      $("#user_info").remove();
+    }
 
     $.ajax({
       type: 'GET',
@@ -57,7 +76,6 @@ $(function() {
     })
     .done(function(results) {
       var html = buildHtml(results);
-      messageInput.val('');
     })
     .fail(function() {
       alert('error');
