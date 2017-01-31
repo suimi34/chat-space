@@ -1,5 +1,6 @@
 $(function() {
 
+// 追加ボタンが押された時に、そのテキストとクラスを変更すると同時にinput要素にuser_idを持たせる
   $(".chat-group-user").on("click", ".chat-group-user__btn--add", function(){
     var addUserId = this.getAttribute("data-user-id");
     var addUser = $(this).parents('.chat-group-user');
@@ -15,6 +16,7 @@ $(function() {
     $("#added_users").append(addUser);
   });
 
+  // 削除ボタンが押された時に、そのテキストとクラスを変更すると同時にinput要素を削除する
   $(".chat-group-user").on("click", ".chat-group-user__btn--remove", function(){
     var removeUser = $(this).parents(".chat-group-user");
     var removeUserInput = removeUser.children('input');
