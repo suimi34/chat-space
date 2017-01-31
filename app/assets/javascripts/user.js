@@ -27,3 +27,22 @@ $(function() {
     $("#user_info").append(removeUser);
   });
 });
+
+
+//インクリメンタルサーチ
+
+$(function() {
+
+  function editElement(element) {
+    var result = "^" + element;
+    return result;
+  }
+
+  $("#keyword").on("keyup", function() {
+    var input = $(this).val();
+    var inputs = input.split("").filter(function(e) { return e; });
+    var newInputs = inputs.map(editElement);
+    var word = newInputs.join("|");
+    var reg = RegExp(word);
+  });
+});
