@@ -34,6 +34,11 @@ class ChatGroupsController < ApplicationController
     end
   end
 
+  def user_search
+    @pusers = User.where('name', "params[:name]}")
+  end
+
+
   private
   def chat_group_params
     params.require(:chat_group).permit(:name, user_ids: [])
