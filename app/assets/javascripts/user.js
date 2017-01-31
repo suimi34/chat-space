@@ -44,5 +44,23 @@ $(function() {
     var newInputs = inputs.map(editElement);
     var word = newInputs.join("|");
     var reg = RegExp(word);
+
+    $.ajax({
+      type: 'GET',
+      url: $('form').attr('action'),
+      data: {
+        user: {
+          name: reg
+        }
+      },
+      dataType: 'json'
+    })
+    .done(function(message) {
+      var html = buildHtml(message);
+      messageInput.val('');
+    })
+    .fail(function() {
+      alert('error');
+    });
   });
 });
