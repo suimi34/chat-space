@@ -1,7 +1,7 @@
 $(function() {
 
 // 追加ボタンが押された時に、そのテキストとクラスを変更すると同時にinput要素にuser_idを持たせる
-  $(".chat-group-user").on("click", ".chat-group-user__btn--add", function(){
+  $("body").on("click", ".chat-group-user__btn--add", function(){
     var addUserId = this.getAttribute("data-user-id");
     var addUser = $(this).parents('.chat-group-user');
     this.textContent = "削除"
@@ -17,27 +17,12 @@ $(function() {
   });
 
   // 削除ボタンが押された時に、そのテキストとクラスを変更すると同時にinput要素を削除する
-  $(".chat-group-user").on("click", ".chat-group-user__btn--remove", function(){
+  $("body").on("click", ".chat-group-user__btn--remove", function(){
     var removeUser = $(this).parents(".chat-group-user");
-    var removeUserInput = removeUser.children('input');
-    var removeUserId = removeUserInput.val();
-    this.textContent = "追加"
-    $(this).removeClass("chat-group-user__btn--remove").addClass("chat-group-user__btn--add");
-    removeUserInput.remove();
-    $("#user_info").append(removeUser);
+    removeUser.remove();
   });
-});
-
 
 //インクリメンタルサーチ
-
-$(function() {
-
-  function editElement(element) {
-    var result = "^" + element;
-    return result;
-  }
-
 //JSONで戻ってきた配列に対し、１つずつHTML加工処理
   function buildHtml(results) {
     $.each(results, function(i, result) {
@@ -45,19 +30,17 @@ $(function() {
       var htmlName = $('<div class="chat-group-user__name">').append(result.name);
       var htmlBtn = $("<div>", { "class": "chat-group-user__btn" });
       var htmlBtnAdd = $("<div>", { "class": "chat-group-user__btn--add", text: "追加" });
-      htmlBtnAdd.attr('user-id', result.id);
+      htmlBtnAdd.attr('data-user-id', result.id);
       htmlBtn.append(htmlBtnAdd);
       html.append(htmlName, htmlBtn);
       $("#user_info").append(html);
     });
   };
 
-//入力フォームに入力されたワードを前方一致の正規表現
   $("#keyword").on("keyup", function() {
     var input = $(this).val();
     var inputs = input.split(" ").filter(function(e) { return e; });
-    var newInputs = inputs.map(editElement);
-    var word = newInputs.join("|");
+    var word = inputs.join("|");
     var reg = RegExp(word);
 
     if (input.length === 0) {

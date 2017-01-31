@@ -35,8 +35,8 @@ class ChatGroupsController < ApplicationController
   end
 
   def user_search
-    @results = User.where('name LIKE(?)', "%#{params[:name]}%")
-    render json: @results
+    results = User.where('name LIKE(?)', "%#{params[:name]}%")
+    render json: results
   end
 
 
