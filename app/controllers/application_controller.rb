@@ -18,4 +18,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
+
+  def all_users_without_current_user
+    return User.joins(:chat_groups).where.not(users: { id: @chat_group.user_ids }).distinct
+  end
+
+  def chat_group_users
+    return @chat_group.users.where.not(users: { id: current_user.id })
+  end
 end

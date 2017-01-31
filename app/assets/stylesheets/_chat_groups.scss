@@ -35,8 +35,9 @@
   }
 
   &__field {
+    @include clearfix();
     margin-top: 30px;
-    height: 50px;
+    min-height: 50px;
 
     &--left {
       float: left;
@@ -49,6 +50,32 @@
     &--right {
       float: right;
       width: 70%;
+    }
+
+    .chat-group-user {
+      @include clearfix();
+      padding: 0 15px;
+      line-height: 50px;
+      font-size: 14px;
+      border-bottom: $mainBorder;
+
+      &__name {
+        float: left;
+      }
+
+      &__btn {
+        float: right;
+        cursor: pointer;
+        border: none;
+
+        &--add {
+          color: $lightBlue;
+        }
+
+        &--remove {
+          color: #f05050;
+        }
+      }
     }
 
     .chat-group-form__label {
@@ -64,31 +91,6 @@
       line-height: 30px;
       padding: 10px 15px;
       box-sizing: border-box;
-    }
-  }
-
-  .chat-group-user {
-    padding: 0 15px;
-    line-height: 50px;
-    font-size: 14px;
-    border-bottom: $mainBorder;
-
-    &__name {
-      float: left;
-    }
-
-    &__btn {
-      float: right;
-      display: inline-block;
-      cursor: pointer;
-
-      &--add {
-        color: $lightBlue;
-      }
-
-      &--remove {
-        color: #f05050;
-      }
     }
   }
 
