@@ -34,12 +34,6 @@ class ChatGroupsController < ApplicationController
     end
   end
 
-  def user_search
-    results = User.where('name like ?', "%#{params[:user][:name]}%")
-    render json: results
-  end
-
-
   private
   def chat_group_params
     params.require(:chat_group).permit(:name, user_ids: [])

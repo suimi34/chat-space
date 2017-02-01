@@ -50,7 +50,7 @@ $(function() {
 
       $.ajax({
         type: 'GET',
-        url: 'user_search',
+        url: '/users',
         data: {
           user: {
             name: word
