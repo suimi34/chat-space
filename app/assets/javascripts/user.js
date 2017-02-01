@@ -1,5 +1,7 @@
 $(function() {
 
+  var currentUserId = $("#current_user_id").val();
+
 // 追加ボタンが押された時に、そのテキストとクラスを変更すると同時にinput要素にuser_idを持たせる
   $("body").on("click", ".chat-group-user__btn--add", function(){
     var addUserId = this.getAttribute("data-user-id");
@@ -24,17 +26,20 @@ $(function() {
 
 //インクリメンタルサーチ
 //JSONで戻ってきた配列に対し、１つずつHTML加工処理
+//現在ログインしているユーザーは検索結果に表示させない
 
   function buildHtml(results) {
     $.each(results, function(i, result) {
-      var html = $("<div>", { "class": "chat-group-user" });
-      var htmlName = $('<div class="chat-group-user__name">').append(result.name);
-      var htmlBtn = $("<div>", { "class": "chat-group-user__btn" });
-      var htmlBtnAdd = $("<div>", { "class": "chat-group-user__btn--add", text: "追加" });
-      htmlBtnAdd.attr('data-user-id', result.id);
-      htmlBtn.append(htmlBtnAdd);
-      html.append(htmlName, htmlBtn);
-      $("#user_info").append(html);
+      if (result.id != currentUserId) {
+        var html = $("<div>", { "class": "chat-group-user" });
+        var htmlName = $('<div class="chat-group-user__name">').append(result.name);
+        var htmlBtn = $("<div>", { "class": "chat-group-user__btn" });
+        var htmlBtnAdd = $("<div>", { "class": "chat-group-user__btn--add", text: "追加" });
+        htmlBtnAdd.attr('data-user-id', result.id);
+        htmlBtn.append(htmlBtnAdd);
+        html.append(htmlName, htmlBtn);
+        $("#user_info").append(html);
+      };
     });
   };
 

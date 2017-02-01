@@ -13,7 +13,7 @@
   .chat-group-form__field--left
     .chat-group-form__label チャットメンバー
   #added_users.chat-group-form__field--right
-    = f.hidden_field :user_ids, name: "chat_group[user_ids][]", value: current_user.id
+    = f.hidden_field :user_ids, name: "chat_group[user_ids][]", value: current_user.id, id: "current_user_id"
     .chat-group-user
       .chat-group-user__name
         = current_user.name
