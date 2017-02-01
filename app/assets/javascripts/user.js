@@ -3,7 +3,7 @@ $(function() {
   var currentUserId = $("#current_user_id").val();
 
 // 追加ボタンが押された時に、そのテキストとクラスを変更すると同時にinput要素にuser_idを持たせる
-  $("body").on("click", ".chat-group-user__btn--add", function(){
+  $(".chat-group-form").on("click", ".chat-group-user__btn--add", function(){
     var addUserId = this.getAttribute("data-user-id");
     var addUser = $(this).parents('.chat-group-user');
     this.textContent = "削除"
@@ -19,7 +19,7 @@ $(function() {
   });
 
 // 削除ボタンが押された時に、そのテキストとクラスを変更すると同時にinput要素を削除する
-  $("body").on("click", ".chat-group-user__btn--remove", function(){
+  $(".chat-group-form").on("click", ".chat-group-user__btn--remove", function(){
     var removeUser = $(this).parents(".chat-group-user");
     removeUser.remove();
   });
