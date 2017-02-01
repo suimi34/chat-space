@@ -41,7 +41,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
   gem 'factory_girl_rails', '~> 4.8'
-  gem 'gon', '~> 6.1'
 end
 
 group :development do
