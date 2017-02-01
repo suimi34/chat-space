@@ -16,7 +16,7 @@ $(function() {
     $("#added_users").append(addUser);
   });
 
-  // 削除ボタンが押された時に、そのテキストとクラスを変更すると同時にinput要素を削除する
+// 削除ボタンが押された時に、そのテキストとクラスを変更すると同時にinput要素を削除する
   $("body").on("click", ".chat-group-user__btn--remove", function(){
     var removeUser = $(this).parents(".chat-group-user");
     removeUser.remove();
@@ -43,10 +43,6 @@ $(function() {
     var word = inputs.join("|");
     var reg = RegExp(word);
 
-    if (input.length === 0) {
-      $("#user_info").remove();
-    }
-
     $.ajax({
       type: 'GET',
       url: 'user_search',
@@ -59,6 +55,9 @@ $(function() {
     })
     .done(function(results) {
       var html = buildHtml(results);
+      if (input.length === 0) {
+        $("#user_info").empty();
+      }
     })
     .fail(function() {
       alert('error');
