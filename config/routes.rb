@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :chat_groups, except: %i[show destroy] do
     resources :messages, only: %i[index create]
   end
+  resources :users, only: :index
 end

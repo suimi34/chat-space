@@ -8,7 +8,6 @@ class ChatGroupsController < ApplicationController
 
   def new
     @chat_group = ChatGroup.new
-    @users = User.all.where.not(users: { id: current_user.id })
   end
 
   def create
