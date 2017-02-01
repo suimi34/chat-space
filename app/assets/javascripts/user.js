@@ -25,8 +25,6 @@ $(function() {
 //インクリメンタルサーチ
 //JSONで戻ってきた配列に対し、１つずつHTML加工処理
 
-  var preWord;
-
   function buildHtml(results) {
     $.each(results, function(i, result) {
       var html = $("<div>", { "class": "chat-group-user" });
@@ -40,10 +38,15 @@ $(function() {
     });
   };
 
+  var preWord;
+
   $("#keyword").on("keyup", function() {
     var input = $(this).val();
     var inputs = input.split(" ").filter(function(e) { return e; });
     var word = inputs.join("|");
+    if (input.length === 0) {
+      $("#user_info").empty();
+    }
 
     if (word != preWord && input.length !== 0) {
       $("#user_info").empty();
@@ -60,11 +63,11 @@ $(function() {
       })
       .done(function(results) {
         var html = buildHtml(results);
-        preWord = word;
       })
       .fail(function() {
         alert('error');
       });
-    }
+    };
+    preWord = word;
   });
 });
