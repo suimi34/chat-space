@@ -32,7 +32,8 @@ $(function() {
     $.each(results, function(i, result) {
       if (result.id != currentUserId) {
         var html = $("<div>", { "class": "chat-group-user" });
-        var htmlName = $('<div class="chat-group-user__name">').append(result.name);
+        var htmlName = $("<div>", { "class": "chat-group-user__name" });
+        html.append(result.name);
         var htmlBtn = $("<div>", { "class": "chat-group-user__btn" });
         var htmlBtnAdd = $("<div>", { "class": "chat-group-user__btn--add", text: "追加" });
         htmlBtnAdd.attr('data-user-id', result.id);
@@ -40,6 +41,21 @@ $(function() {
         html.append(htmlName, htmlBtn);
         $("#user_info").append(html);
       };
+    });
+  };
+
+  function show_users(word) {
+    $.ajax({
+      type: 'GET',
+      url: '/users',
+      data: { user: { name: word } },
+      dataType: 'json'
+    })
+    .done(function(results) {
+      var html = buildHtml(results);
+    })
+    .fail(function() {
+      alert('error');
     });
   };
 
@@ -55,24 +71,8 @@ $(function() {
 
     if (word != preWord && input.length !== 0) {
       $("#user_info").empty();
-
-      $.ajax({
-        type: 'GET',
-        url: '/users',
-        data: {
-          user: {
-            name: word
-          }
-        },
-        dataType: 'json'
-      })
-      .done(function(results) {
-        var html = buildHtml(results);
-      })
-      .fail(function() {
-        alert('error');
-      });
+      show_users(word)
+      preWord = word;
     };
-    preWord = word;
   });
 });
