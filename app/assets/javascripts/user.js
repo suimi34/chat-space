@@ -24,6 +24,9 @@ $(function() {
 
 //インクリメンタルサーチ
 //JSONで戻ってきた配列に対し、１つずつHTML加工処理
+
+  var preWord;
+
   function buildHtml(results) {
     $.each(results, function(i, result) {
       var html = $("<div>", { "class": "chat-group-user" });
@@ -41,26 +44,27 @@ $(function() {
     var input = $(this).val();
     var inputs = input.split(" ").filter(function(e) { return e; });
     var word = inputs.join("|");
-    var reg = RegExp(word);
 
-    $.ajax({
-      type: 'GET',
-      url: 'user_search',
-      data: {
-        user: {
-          name: reg
-        }
-      },
-      dataType: 'json'
-    })
-    .done(function(results) {
-      var html = buildHtml(results);
-      if (input.length === 0) {
-        $("#user_info").empty();
-      }
-    })
-    .fail(function() {
-      alert('error');
-    });
+    if (word != preWord && input.length !== 0) {
+      $("#user_info").empty();
+
+      $.ajax({
+        type: 'GET',
+        url: 'user_search',
+        data: {
+          user: {
+            name: word
+          }
+        },
+        dataType: 'json'
+      })
+      .done(function(results) {
+        var html = buildHtml(results);
+        preWord = word;
+      })
+      .fail(function() {
+        alert('error');
+      });
+    }
   });
 });
