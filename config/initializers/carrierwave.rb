@@ -1,17 +1,17 @@
 CarrierWave.configure do |config|
   config.fog_credentials = {
-    provider:               'AWS',
-    aws_access_key_id:      'your_access_key_id',
-    aws_secret_access_key:  'your_secret_access_key',
-    region:                 'ap-northeast-1'
+    provider:               ENV['AWS'],
+    aws_access_key_id:      ENV['S3_ACCESS_KEY_ID'],
+    aws_secret_access_key:  ENV['S3_SECRET_ACCESS_KEY'],
+    region:                 ENV['AWS_REGION']
   }
 
   case Rails.env
     when 'production', 'development'
-      config.fog_directory = 'tc-ex-chat-space-image'
-      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/dummy'
+      config.fog_directory =
+      config.asset_host =
 
     when 'test'
-      config.fog_directory = 'test.dummy'
+      config.fog_directory =
   end
 end
