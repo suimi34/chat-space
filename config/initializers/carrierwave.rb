@@ -8,10 +8,10 @@ CarrierWave.configure do |config|
 
   case Rails.env
     when 'production', 'development'
-      config.fog_directory =
-      config.asset_host =
+      config.fog_directory = ENV['S3_BUCKET_NAME']
+      config.asset_host = ENV['S3_ASSET_HOST']
 
     when 'test'
-      config.fog_directory =
+      config.fog_public =
   end
 end
