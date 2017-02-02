@@ -6,5 +6,5 @@
   .view__messages__message__body
     = message.body
   .view__messages__message__image
-    = @chat_group.messages.try(:image)
+    = message.try(:image)
 
