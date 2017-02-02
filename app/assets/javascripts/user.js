@@ -33,7 +33,7 @@ $(function() {
       if (result.id != currentUserId) {
         var html = $("<div>", { "class": "chat-group-user" });
         var htmlName = $("<div>", { "class": "chat-group-user__name" });
-        html.append(result.name);
+        htmlName.append(result.name);
         var htmlBtn = $("<div>", { "class": "chat-group-user__btn" });
         var htmlBtnAdd = $("<div>", { "class": "chat-group-user__btn--add", text: "追加" });
         htmlBtnAdd.attr('data-user-id', result.id);

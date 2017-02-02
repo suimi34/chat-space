@@ -154,6 +154,10 @@ body {
         float: left;
       }
 
+      &__image {
+        display: none;
+      }
+
       i {
         position: absolute;
         bottom: 35px;
