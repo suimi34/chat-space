@@ -10,8 +10,5 @@ CarrierWave.configure do |config|
     when 'production', 'development'
       config.fog_directory = ENV['S3_BUCKET_NAME']
       config.asset_host = ENV['S3_ASSET_HOST']
-
-    when 'test'
-      config.fog_public =
   end
 end
