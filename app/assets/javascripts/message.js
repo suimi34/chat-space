@@ -3,7 +3,9 @@ $(function() {
     var htmlName = $('<div class="view__messages__message__name">').append(message.name);
     var htmlDate = $('<div class="view__messages__message__date">').append(message.date);
     var htmlBody = $('<div class="view__messages__message__body">').append(message.body);
-    var element = $("<div>", { class: "view__messages__message" }).append(htmlName, htmlDate, htmlBody);
+    var htmlImage = document.createElement('img');
+    htmlImage.src = message.image.url
+    var element = $("<div>", { class: "view__messages__message" }).append(htmlName, htmlDate, htmlBody, htmlImage);
     var html = $('.view__messages').append(element);
     return html;
   }
