@@ -5,6 +5,5 @@
     = message.post_time
   .view__messages__message__body
     = message.body
-  .view__messages__message__image
-    = message.try(:image)
+  %img{ src: message.image }
 
