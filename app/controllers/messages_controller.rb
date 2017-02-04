@@ -6,6 +6,10 @@ class MessagesController < ApplicationController
     @chat_groups = current_user.chat_groups
     @message = Message.new
     @messages = @chat_group.messages
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create

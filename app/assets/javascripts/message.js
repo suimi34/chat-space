@@ -3,8 +3,10 @@ $(function() {
     var htmlName = $('<div class="view__messages__message__name">').append(message.name);
     var htmlDate = $('<div class="view__messages__message__date">').append(message.date);
     var htmlBody = $('<div class="view__messages__message__body">').append(message.body);
-    var htmlImage = document.createElement('img');
-    htmlImage.src = message.image.url
+    if (message.image.url) {
+      var htmlImage = document.createElement('img');
+      htmlImage.src = message.image.url;
+    }
     var element = $("<div>", { class: "view__messages__message" }).append(htmlName, htmlDate, htmlBody, htmlImage);
     var html = $('.view__messages').append(element);
     return html;
@@ -31,6 +33,42 @@ $(function() {
       alert('error');
     });
   });
+
+  function reflesh(message) {
+    var htmlName = $('<div class="view__messages__message__name">').append(message.name);
+    var htmlDate = $('<div class="view__messages__message__date">').append(message.date);
+    var htmlBody = $('<div class="view__messages__message__body">').append(message.body);
+    if (message.image.url) {
+      var htmlImage = document.createElement('img');
+      htmlImage.src = message.image.url;
+    }
+    var element = $("<div>", { class: "view__messages__message" }).append(htmlName, htmlDate, htmlBody, htmlImage);
+    return element;
+  }
+
+  var allMessages = document.getElementsByClassName("view__messages__message");
+  var num = allMessages.length;
+  var refMessages;
+
+  function autoReflesh(wrapper) {
+    $.ajax({
+      type: "GET",
+      url: './messages.json',
+      dataType: 'json'
+    })
+    .done(function(messages) {
+      if (num === messages.length) {
+        $("#wrapper").empty();
+        $.each(messages, function(i, message) {
+          var refMessage = reflesh(message)
+          $("#wrapper").append(refMessage);
+        });
+      } else { console.log("aaa") }
+    })
+  };
+
+  var timer = setInterval(function(){ autoReflesh() }, 3000000);
+
 });
 
 
