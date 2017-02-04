@@ -34,6 +34,9 @@ $(function() {
     });
   });
 
+  //自動更新機能
+  //一定間隔でmessagesコントローラーのindexアクションにAjaxで通信する。
+  //messagesの数が異なる場合は全てのmessagesに対してHTML加工処理
   function reflesh(message) {
     var htmlName = $('<div class="view__messages__message__name">').append(message.name);
     var htmlDate = $('<div class="view__messages__message__date">').append(message.date);
@@ -50,25 +53,23 @@ $(function() {
   var num = allMessages.length;
   var refMessages;
 
-  function autoReflesh(wrapper) {
+  function autoReflesh() {
     $.ajax({
       type: "GET",
       url: './messages.json',
       dataType: 'json'
     })
     .done(function(messages) {
-      if (num === messages.length) {
+      if (num != messages.length) {
         $("#wrapper").empty();
         $.each(messages, function(i, message) {
           var refMessage = reflesh(message)
           $("#wrapper").append(refMessage);
         });
-      } else { console.log("aaa") }
+      }
     })
   };
-
-  var timer = setInterval(function(){ autoReflesh() }, 3000000);
-
+  var timer = setInterval(function() { autoReflesh() }, 3000);
 });
 
 
