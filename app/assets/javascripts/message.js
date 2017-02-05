@@ -1,15 +1,21 @@
 $(function() {
+
+  var wrapper = $("#wrapper");
+  var allMessages = wrapper.children();
+  var num = allMessages.length;
+  var refMessages;
+
   function buildHtml(message) {
     var htmlName = $('<div class="view__messages__message__name">').append(message.name);
     var htmlDate = $('<div class="view__messages__message__date">').append(message.date);
     var htmlBody = $('<div class="view__messages__message__body">').append(message.body);
+    var element = $("<div>", { class: "view__messages__message" }).append(htmlName, htmlDate, htmlBody);
     if (message.image.url) {
       var htmlImage = document.createElement('img');
       htmlImage.src = message.image.url;
+      element.append(htmlImage);
     }
-    var element = $("<div>", { class: "view__messages__message" }).append(htmlName, htmlDate, htmlBody, htmlImage);
-    var html = $('.view__messages').append(element);
-    return html;
+    return element
   }
 
   $('#new__message').on('submit', function(e){
@@ -26,7 +32,9 @@ $(function() {
       dataType: 'json'
     })
     .done(function(message) {
-      var html = buildHtml(message);
+      var element = buildHtml(message);
+      wrapper.append(element);
+      wrapper.animate({ scrollTop: wrapper[0].scrollHeight}, 'normal');
       messageInput.val('');
     })
     .fail(function() {
@@ -37,39 +45,28 @@ $(function() {
   //自動更新機能
   //一定間隔でmessagesコントローラーのindexアクションにAjaxで通信する。
   //messagesの数が異なる場合は全てのmessagesに対してHTML加工処理
-  function reflesh(message) {
-    var htmlName = $('<div class="view__messages__message__name">').append(message.name);
-    var htmlDate = $('<div class="view__messages__message__date">').append(message.date);
-    var htmlBody = $('<div class="view__messages__message__body">').append(message.body);
-    if (message.image.url) {
-      var htmlImage = document.createElement('img');
-      htmlImage.src = message.image.url;
-    }
-    var element = $("<div>", { class: "view__messages__message" }).append(htmlName, htmlDate, htmlBody, htmlImage);
-    return element;
-  }
-
-  var allMessages = document.getElementsByClassName("view__messages__message");
-  var num = allMessages.length;
-  var refMessages;
+  // チャット画面である"#wrapper"が存在しないときは自動更新しない
 
   function autoReflesh() {
+    if (!(wrapper).length) {
+      return true;
+    }
     $.ajax({
       type: "GET",
       url: './messages.json',
       dataType: 'json'
     })
     .done(function(messages) {
-      if (num != messages.length) {
-        $("#wrapper").empty();
+      if (num === messages.length) {
+        wrapper.empty();
         $.each(messages, function(i, message) {
-          var refMessage = reflesh(message)
-          $("#wrapper").append(refMessage);
+          var refMessage = buildHtml(message);
+          wrapper.append(refMessage);
         });
       }
     })
   };
-  var timer = setInterval(function() { autoReflesh() }, 3000);
+  var timer = setInterval(function() { autoReflesh() }, 1000);
 });
 
 
