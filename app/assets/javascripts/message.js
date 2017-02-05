@@ -57,7 +57,7 @@ $(function() {
       dataType: 'json'
     })
     .done(function(messages) {
-      if (num === messages.length) {
+      if (num != messages.length) {
         wrapper.empty();
         $.each(messages, function(i, message) {
           var refMessage = buildHtml(message);
@@ -66,7 +66,7 @@ $(function() {
       }
     })
   };
-  var timer = setInterval(function() { autoReflesh() }, 1000);
+  var timer = setInterval(function() { autoReflesh() }, 3000);
 });
 
 
