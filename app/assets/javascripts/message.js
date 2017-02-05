@@ -18,6 +18,10 @@ $(function() {
     return element
   }
 
+  //投稿機能の非同期化
+  //submitされたときに発火し、HTML加工処理
+  //投稿したメッセージのところまでスクロールが下がる
+
   $('#new__message').on('submit', function(e){
     e.preventDefault();
     var messageInput = $('.view__message--new__input');
@@ -34,7 +38,7 @@ $(function() {
     .done(function(message) {
       var element = buildHtml(message);
       wrapper.append(element);
-      wrapper.animate({ scrollTop: wrapper[0].scrollHeight}, 'normal');
+      wrapper.animate({ scrollTop: wrapper[0].scrollHeight }, 'normal');
       messageInput.val('');
     })
     .fail(function() {
@@ -48,23 +52,23 @@ $(function() {
   // チャット画面である"#wrapper"が存在しないときは自動更新しない
 
   function autoReflesh() {
-    if (!(wrapper).length) {
-      return true;
+    if (wrapper.length) {
+      $.ajax({
+        type: "GET",
+        url: './messages.json',
+        dataType: 'json'
+      })
+      .done(function(messages) {
+        if (num === messages.length) {
+          console.log("keizoku")
+          wrapper.empty();
+          $.each(messages, function(i, message) {
+            var refMessage = buildHtml(message);
+            wrapper.append(refMessage);
+          });
+        }
+      });
     }
-    $.ajax({
-      type: "GET",
-      url: './messages.json',
-      dataType: 'json'
-    })
-    .done(function(messages) {
-      if (num != messages.length) {
-        wrapper.empty();
-        $.each(messages, function(i, message) {
-          var refMessage = buildHtml(message);
-          wrapper.append(refMessage);
-        });
-      }
-    })
   };
   var timer = setInterval(function() { autoReflesh() }, 3000);
 });
