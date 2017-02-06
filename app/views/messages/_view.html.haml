@@ -8,7 +8,7 @@
       - @users.each do |user|
         = user.name
 
-.view__messages
+#wrapper.view__messages
   = render @messages
 .view__message--new
   = form_for([@chat_group, @message], html: { id: "new__message" }) do |f|
