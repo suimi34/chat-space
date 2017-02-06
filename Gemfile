@@ -33,6 +33,8 @@ gem 'fog', '~> 1.38'
 
 gem 'rmagick', '~> 2.15', '>= 2.15.4'
 
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -47,7 +49,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'haml-rails', '~> 0.9.0'
-  gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
   gem 'factory_girl_rails', '~> 4.8'
