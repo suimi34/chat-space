@@ -1,8 +1,6 @@
 $(function() {
 
   var wrapper = $("#wrapper");
-  var allMessages = wrapper.children();
-  var num = allMessages.length;
   var refMessages;
 
   function buildHtml(message) {
@@ -48,25 +46,22 @@ $(function() {
 
   //自動更新機能
   //一定間隔でmessagesコントローラーのindexアクションにAjaxで通信する。
-  //messagesの数が異なる場合は全てのmessagesに対してHTML加工処理
-  // チャット画面である"#wrapper"が存在しないときは自動更新しない
+  // autoRefleshが呼ばれたとき、urlにmessagesを含んでいるときだけ自動更新する。
 
   function autoReflesh() {
-    if (wrapper.length) {
+    var url = window.location.href;
+    if (url.match(/messages/)) {
       $.ajax({
         type: "GET",
         url: './messages.json',
         dataType: 'json'
       })
       .done(function(messages) {
-        if (num === messages.length) {
-          console.log("keizoku")
-          wrapper.empty();
-          $.each(messages, function(i, message) {
-            var refMessage = buildHtml(message);
-            wrapper.append(refMessage);
-          });
-        }
+        wrapper.empty();
+        $.each(messages, function(i, message) {
+          var refMessage = buildHtml(message);
+          wrapper.append(refMessage);
+        });
       });
     }
   };
