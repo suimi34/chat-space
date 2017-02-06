@@ -160,9 +160,9 @@ body {
       }
 
       i {
-        position: absolute;
-        bottom: 35px;
-        right: 180px;
+        position: relative;
+        top: 35px;
+        right: 30px;
       }
 
       &__button {
@@ -173,7 +173,7 @@ body {
         font-size: 18px;
         border: none;
         float: right;
-        margin: 20px 40px 20px 15px;
+        margin: 0px 40px 20px 15px;
       }
     }
   }
