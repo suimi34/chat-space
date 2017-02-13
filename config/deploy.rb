@@ -22,6 +22,8 @@ set :default_env, {
   S3_SECRET_ACCESS_KEY: ENV['S3_SECRET_ACCESS_KEY']
 }
 
+set :branch, ENV['BRANCH'] || "master"
+
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
