@@ -2,7 +2,7 @@
 lock "3.7.2"
 
 set :application, "chat-space"
-set :repo_url, "git@github-frongrasanf:frongrasanf/chat-space.git"
+set :repo_url, "git@github-frongrasanf:frongrasanfchat-space.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
@@ -15,7 +15,7 @@ set :ssh_options, auth_methods: ['publickey'],
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 
-set :branch, fetch(branch:, "master")
+set :branch, ENV['BRANCH'] || "master"
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
