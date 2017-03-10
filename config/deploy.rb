@@ -15,6 +15,13 @@ set :ssh_options, auth_methods: ['publickey'],
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 
+set :default_env, {
+  rbenv_root: "/usr/local/rbenv",
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+  S3_ACCESS_KEY_ID: ENV['S3_ACCESS_KEY_ID'],
+  S3_SECRET_ACCESS_KEY: ENV['S3_SECRET_ACCESS_KEY']
+}
+
 set :branch, ENV['BRANCH'] || "master"
 
 after 'deploy:publishing', 'deploy:restart'
