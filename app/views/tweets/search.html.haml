@@ -1,7 +1,8 @@
 .content
   #search__box
-    = form_field_tag :tweet, nil,  id: "tweet_search", name: "keyword", placeholder: "キーワードを打ち込んでください", style: "width: 200px"
-    = button_tag type: "submit"
+    = form_tag('/tweets/search', method: :get) do
+      = text_field_tag :tweet, nil,  id: "tweet_search", name: "keyword", placeholder: "キーワードを打ち込んでください", style: "width: 200px"
+      = button_tag "検索", type: "submit"
 
   #tweet__list
   - if @tweets.present?
@@ -9,4 +10,4 @@
     %ul
       = @tweets.each_with_index do |tweet, i|
         .list
-          %li{ = i }: { = tweet.contents }
+          %li = i : = tweet.contents
