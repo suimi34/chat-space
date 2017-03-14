@@ -1,13 +1,20 @@
 .content
   #search__box
-    = form_tag('/tweets/search', method: :get) do
+    = form_tag('/tweet/search', method: :get) do
       = text_field_tag :tweet, nil,  id: "tweet_search", name: "keyword", placeholder: "キーワードを打ち込んでください", style: "width: 200px"
       = button_tag "検索", type: "submit"
 
-  #tweet__list
+  #tweet__list 結果
   - if @tweets.present?
-    %h2 検索結果
     %ul
-      = @tweets.each_with_index do |tweet, i|
+      - @tweets.each do |tweet|
         .list
-          %li = i : = tweet.contents
+          %li
+            = tweet.contents
+          %br/
+
+  %script{ src: "https://twitter.com/hashtag/%E8%87%AA%E8%A1%9B%E9%9A%8A" }
+  .twitter-timeline{ width: "500px", data: { widget: { id: "841508926814212096" } } } 自衛隊 のツイート
+
+:javascript
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
