@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+  get 'tweet/search' => 'tweets#search'
   root 'chat_groups#index'
   resources :chat_groups, except: %i[show destroy] do
     resources :messages, only: %i[index create]
   end
   resources :users, only: :index
-  get 'tweet/search' => 'tweet#search'
 end
