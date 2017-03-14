@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     resources :messages, only: %i[index create]
   end
   resources :users, only: :index
+  get 'tweet/search' => 'tweet#search'
 end
