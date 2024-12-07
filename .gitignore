@@ -13,3 +13,5 @@
 /tmp
 /app/assets/images
 /.env
+
+/public/assets
