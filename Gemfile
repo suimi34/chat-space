@@ -56,6 +56,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
   gem 'factory_girl_rails', '~> 4.8'
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.1'
 end
 
 group :development do
@@ -68,5 +69,4 @@ end
 
 group :test do
   gem 'faker', '~> 1.7', '>= 1.7.2'
-  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.1'
 end
