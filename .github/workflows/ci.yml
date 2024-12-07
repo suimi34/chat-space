@@ -25,11 +25,11 @@ jobs:
         run: make test_migrate
       - name: run rspec
         run: make rspec
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v3
 
-      - name: Build docker image
-        run: docker build . -t suimi34/chat-space:dev
+  #     - name: Build docker image
+  #       run: docker build . -t suimi34/chat-space:dev
