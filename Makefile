@@ -18,7 +18,6 @@ test_clobber:
 	docker compose -f docker-compose.test.yml run --rm --no-deps test_web bundle exec rake assets:clean
 
 test_precompile:
-	docker compose -f docker-compose.test.yml run --rm --no-deps test_web bundle exec rails tailwindcss:build
 	docker compose -f docker-compose.test.yml run --rm --no-deps test_web bundle exec rails assets:precompile
 
 test_bundle:
