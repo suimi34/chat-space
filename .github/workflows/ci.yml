@@ -18,7 +18,7 @@ jobs:
       - name: set up test web
         run: make test_web && make test_bundle
       - name: set up test web asset
-        run: make test_clobber && make test_precompile
+        run: make test_precompile
       - name: debug3
         run: ls -al app/assets/builds/
       - name: set up test migrate

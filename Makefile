@@ -13,9 +13,9 @@ web:
 test_web:
 	docker compose -f docker-compose.test.yml up --no-deps -d test_web
 
-test_clobber:
-	docker compose -f docker-compose.test.yml run --rm --no-deps test_web bundle exec rake assets:clobber
-	docker compose -f docker-compose.test.yml run --rm --no-deps test_web bundle exec rake assets:clean
+# test_clobber:
+# 	docker compose -f docker-compose.test.yml run --rm --no-deps test_web bundle exec rake assets:clobber
+# 	docker compose -f docker-compose.test.yml run --rm --no-deps test_web bundle exec rake assets:clean
 
 test_precompile:
 	docker compose -f docker-compose.test.yml run --rm --no-deps test_web bundle exec rails assets:precompile
