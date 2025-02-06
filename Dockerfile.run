@@ -4,6 +4,9 @@
 ARG RUBY_VERSION=2.3.8
 FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim AS base
 
+ARG SECRET_KEY_BASE
+ENV SECRET_KEY_BASE=${SECRET_KEY_BASE}
+
 ENV LANG=C.UTF-8
 ENV TZ=Asia/Tokyo
 
@@ -40,8 +43,8 @@ COPY . .
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
 
-# Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+# Precompiling assets for production
+RUN ./bin/rails assets:precompile
 
 # Final stage for app image
 FROM base

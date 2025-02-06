@@ -3,7 +3,7 @@ steps:
   - id: "build image"
     name: "gcr.io/cloud-builders/docker"
     entrypoint: 'bash'
-    args: ["-c", "docker build -f Dockerfile.run -t gcr.io/${PROJECT_ID}/${_SERVICE_NAME} . "]
+    args: ["-c", "docker build -f Dockerfile.run --build-arg SECRET_KEY_BASE=$$RAILS_KEY -t gcr.io/${PROJECT_ID}/${_SERVICE_NAME} . "]
     secretEnv: ["RAILS_KEY"]
 
   - id: "push image"
