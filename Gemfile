@@ -47,8 +47,6 @@ gem 'haml-rails', '~> 0.9.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'bootsnap', require: false
-
 group :production do
   gem 'unicorn'
 end
