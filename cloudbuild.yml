@@ -24,6 +24,7 @@ steps:
       --update-env-vars=DB_NAME=$$DB_NAME \
       --update-env-vars=DB_USER=$$DB_USER \
       --update-env-vars=DB_PASS=$$DB_PASS \
+      --update-env-vars=RAILS_SERVE_STATIC_FILES=true \
       --region asia-northeast1 \
       --allow-unauthenticated
     secretEnv: ["RAILS_KEY", "DB_HOST", "DB_PORT", "DB_NAME", "DB_USER", "DB_PASS"]
