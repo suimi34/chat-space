@@ -1,7 +1,7 @@
 # syntax = docker/dockerfile:1
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
-ARG RUBY_VERSION=2.3.8
+ARG RUBY_VERSION=2.7.8
 FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim AS base
 
 ARG SECRET_KEY_BASE
@@ -22,9 +22,6 @@ ENV RAILS_ENV="production" \
 
 # Throw-away build stage to reduce size of final image
 FROM base AS build
-
-RUN echo "deb http://archive.debian.org/debian/ stretch main" > /etc/apt/sources.list \
-    && echo "deb http://archive.debian.org/debian-security stretch/updates main" >> /etc/apt/sources.list
 
 # Install packages needed to build gems
 RUN apt-get update -qq && \
