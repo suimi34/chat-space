@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.2', group: :doc
 
-gem 'devise'
+gem 'devise', '~> 4.4'
 
 gem 'carrierwave', '~> 1.0'
 
