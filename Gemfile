@@ -30,7 +30,7 @@ gem 'carrierwave'
 
 gem 'dotenv-rails', '~> 2.2'
 
-gem 'fog'
+# gem 'fog'
 
 gem 'fog-google'
 
