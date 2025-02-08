@@ -32,6 +32,8 @@ gem 'dotenv-rails', '~> 2.2'
 
 gem 'fog', '~> 1.38'
 
+gem 'fog-google'
+
 gem 'rmagick', '~> 2.15', '>= 2.15.4'
 
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
