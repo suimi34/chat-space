@@ -30,6 +30,8 @@ gem 'carrierwave', '~> 1.0'
 
 gem 'dotenv-rails', '~> 2.2'
 
+gem 'fog'
+
 gem 'fog-google'
 
 gem 'rmagick', '~> 2.15', '>= 2.15.4'
