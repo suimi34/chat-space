@@ -1,5 +1,5 @@
 CarrierWave.configure do |config|
-  config.provider = 'fog/google',
+  config.fog_provider = 'fog/google',
   config.fog_credentials = {
     provider: 'Google',
     google_project: ENV['GOOGLE_PROJECT_ID'],
