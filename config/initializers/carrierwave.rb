@@ -1,6 +1,6 @@
 CarrierWave.configure do |config|
   config.storage                             = :gcloud
-  config.gcloud_bucket                       = ENV.['GOOGLE_CLOUD_BUCKET_NAME'] || 'chat-space'
+  config.gcloud_bucket                       = ENV['GOOGLE_CLOUD_BUCKET_NAME'] || 'chat-space'
   config.gcloud_bucket_is_public             = false
   config.gcloud_authenticated_url_expiration = 600
 
