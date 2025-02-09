@@ -1,18 +1,15 @@
 CarrierWave.configure do |config|
-  config.fog_provider = 'fog/google',
-  config.fog_credentials = {
-    provider: 'Google',
-    google_project: ENV['GOOGLE_PROJECT_ID'],
-    google_application_default: true,
+  config.storage                             = :gcloud
+  config.gcloud_bucket                       = ENV.['GOOGLE_CLOUD_BUCKET_NAME'] || 'chat-space'
+  config.gcloud_bucket_is_public             = false
+  config.gcloud_authenticated_url_expiration = 600
+
+  config.gcloud_attributes = {
+    expires: 600
   }
-  config.fog_directory = ENV['GOOGLE_CLOUD_BUCKET_NAME'] || ''
 
-  case Rails.env
-    when 'production', 'development'
-      config.fog_directory = ENV['GOOGLE_CLOUD_BUCKET_NAME'] || ''
-      # config.asset_host = ENV['S3_ASSET_HOST'] || ''
-
-    when 'test'
-      :file
-  end
+  config.gcloud_credentials = {
+    gcloud_project: ENV['GOOGLE_PROJECT_ID']
+    gcloud_keyfile: ENV['GOOGLE_SERVICE_ACCOUNT_JSON']
+  }
 end
