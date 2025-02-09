@@ -51,8 +51,6 @@ availableSecrets:
     env: DB_PASS
   - versionName: projects/156178245176/secrets/CHAT_BUCKET_NAME/versions/latest
     env: BUCKET_NAME
-  - versionName: projects/156178245176/secrets/GOOGLE_SERVICE_ACCOUNT_JSON/versions/latest
-    env: SERVICE_ACCOUNT_JSON
 
 images:
   - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"
