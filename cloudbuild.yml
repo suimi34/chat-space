@@ -27,9 +27,10 @@ steps:
       --update-env-vars=RAILS_SERVE_STATIC_FILES=true \
       --update-env-vars=GOOGLE_PROJECT_ID=${PROJECT_ID} \
       --update-env-vars=GOOGLE_CLOUD_BUCKET_NAME=$$BUCKET_NAME \
+      --update-env-vars=GOOGLE_SERVICE_ACCOUNT_JSON=$$SERVICE_ACCOUNT_JSON \
       --region asia-northeast1 \
       --allow-unauthenticated
-    secretEnv: ["RAILS_KEY", "DB_HOST", "DB_PORT", "DB_NAME", "DB_USER", "DB_PASS", "BUCKET_NAME"]
+    secretEnv: ["RAILS_KEY", "DB_HOST", "DB_PORT", "DB_NAME", "DB_USER", "DB_PASS", "BUCKET_NAME", "SERVICE_ACCOUNT_JSON"]
 
 substitutions:
   _SERVICE_NAME: rails-cloud-run-chat
@@ -51,6 +52,8 @@ availableSecrets:
     env: DB_PASS
   - versionName: projects/156178245176/secrets/CHAT_BUCKET_NAME/versions/latest
     env: BUCKET_NAME
+  - versionName: projects/156178245176/secrets/GOOGLE_SERVICE_ACCOUNT_JSON/versions/latest
+    env: SERVICE_ACCOUNT_JSON
 
 images:
   - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"
