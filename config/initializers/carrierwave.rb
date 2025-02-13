@@ -9,8 +9,8 @@ CarrierWave.configure do |config|
   }
 
   config.gcloud_credentials = {
-    gcloud_project: ENV['GOOGLE_PROJECT_ID'],
-    google_application_default: Rails.env.production?,
+    gcloud_project: ENV['GOOGLE_PROJECT_ID']
+    # google_application_default: Rails.env.production?,
     # gcloud_keyfile: ENV['GOOGLE_SERVICE_ACCOUNT_JSON']
   }
 end
