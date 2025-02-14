@@ -19,6 +19,16 @@ class Google::StorageWrapper
   def signed_url(file_name)
     bucket = storage.bucket ENV["GOOGLE_CLOUD_BUCKET_NAME"] || 'chat-space'
     file = bucket.file file_name
-    file.signed_url method: "GET", expires: 60 * 60
+    file.signed_url(method: "GET", expires: 60 * 60, issuer: issuer, signing_key: signing_key)
+  end
+
+  private
+
+  def issuer
+    ENV["GOOGLE_CLOUD_STORAGE_ISSUER"]
+  end
+
+  def signing_key
+    OpenSSL::PKey::RSA.new(ENV["GOOGLE_CLOUD_STORAGE_PRIVATE_KEY"]&.gsub("\\n", "\n"))
   end
 end
