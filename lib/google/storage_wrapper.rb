@@ -6,7 +6,7 @@ class Google::StorageWrapper
   def initialize
     @storage = Google::Cloud::Storage.new(
       project_id: ENV['GOOGLE_PROJECT_ID'] || '',
-      credentials: File.open("./rails-cloud-run.json")
+      credentials: Rails.env.production? ? nil : File.open("./rails-cloud-run.json")
     )
   end
 
