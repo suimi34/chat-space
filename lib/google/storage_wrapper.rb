@@ -4,10 +4,11 @@ class Google::StorageWrapper
   attr_reader :storage
 
   def initialize
-    @storage = Google::Cloud::Storage.new(
-      project_id: ENV['GOOGLE_PROJECT_ID'] || '',
-      credentials: Rails.env.production? ? nil : File.open("./rails-cloud-run.json")
-    )
+    @storage = if Rails.env.production?
+                  Google::Cloud::Storage.new(project_id: ENV['GOOGLE_PROJECT_ID'])
+               else
+                  Google::Cloud::Storage.new(project_id: ENV['GOOGLE_PROJECT_ID'], credentials: File.open("./rails-cloud-run.json"))
+               end
   end
 
   def upload_image(file_path, file_name)
