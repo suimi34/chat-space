@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
     if @message.save
       if message_params[:image].present?
         Rails.logger.info("Uploading image to Google Cloud Storage!!")
-        ::Google::StorageWrapper.new.upload_image(message_params[:image].tempfile.path, message_params[:image].original_filename)
+        Google::StorageWrapper.new.upload_image(message_params[:image].tempfile.path, message_params[:image].original_filename)
       end
       respond_to do |format|
         format.html { redirect_to chat_group_messages_path(@chat_group) }
