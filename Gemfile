@@ -26,8 +26,6 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'devise', '~> 4.4'
 
-gem 'carrierwave'
-
 gem 'dotenv-rails', '~> 2.2'
 
 gem 'google-cloud-storage'
