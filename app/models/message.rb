@@ -6,4 +6,10 @@ class Message < ApplicationRecord
   def post_time
     return created_at.strftime("%Y/%m/%d/ %H:%M:%S")
   end
+
+  def image_path
+    return '' unless image
+
+    Google::StorageWrapper.new.signed_url(image)
+  end
 end
