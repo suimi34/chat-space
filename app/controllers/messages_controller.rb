@@ -16,6 +16,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params.except(:image))
     if @message.save
       if message_params[:image].present?
+        Rails.logger.info("Uploading image to Google Cloud Storage!!")
         ::Google::StorageWrapper.new.upload_image(message_params[:image].tempfile.path, message_params[:image].original_filename)
       end
       respond_to do |format|
