@@ -43,6 +43,7 @@ steps:
 substitutions:
   _SERVICE_NAME: rails-cloud-run-chat
   _SECRET_NAME: RAILS_KEY
+  _PRIVATE_KEY: ''
 
 availableSecrets:
   secretManager:
