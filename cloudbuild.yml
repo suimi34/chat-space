@@ -35,7 +35,7 @@ steps:
       --update-env-vars=GOOGLE_PROJECT_ID=${PROJECT_ID} \
       --update-env-vars=GOOGLE_CLOUD_BUCKET_NAME=$$BUCKET_NAME \
       --update-env-vars=GOOGLE_CLOUD_STORAGE_ISSUER=$$STORAGE_ISSUER \
-      --update-env-vars=GOOGLE_CLOUD_STORAGE_PRIVATE_KEY=${_PRIVATE_KEY} \
+      --update-env-vars=GOOGLE_CLOUD_STORAGE_PRIVATE_KEY=$(echo "$$SERVICE_ACCOUNT_JSON" | jq -r '.private_key') \
       --region asia-northeast1 \
       --allow-unauthenticated
     secretEnv: ["RAILS_KEY", "DB_HOST", "DB_PORT", "DB_NAME", "DB_USER", "DB_PASS", "BUCKET_NAME", "STORAGE_ISSUER", "SERVICE_ACCOUNT_JSON"]
