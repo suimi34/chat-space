@@ -20,7 +20,7 @@ steps:
       jq --version
       echo "$$SERVICE_ACCOUNT_JSON"
       echo "$$SERVICE_ACCOUNT_JSON" | jq -r '.private_key'
-      _PRIVATE_KEY=$(jq -r '.private_key' "$$SERVICE_ACCOUNT_JSON")
+      _PRIVATE_KEY=$(jq -r '.private_key' $$SERVICE_ACCOUNT_JSON)
       echo "PRIVATE_KEY: $_PRIVATE_KEY"
       echo "PRIVATE_KEY: ${_PRIVATE_KEY}"
       gcloud run deploy ${_SERVICE_NAME} --image gcr.io/${PROJECT_ID}/${_SERVICE_NAME} \
