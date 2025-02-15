@@ -25,10 +25,12 @@ class Google::StorageWrapper
   private
 
   def issuer
-    ENV["GOOGLE_CLOUD_STORAGE_ISSUER"]
+    Rails.env.production? ? ENV["GOOGLE_CLOUD_STORAGE_ISSUER"] : nil
   end
 
   def signing_key
+    return unless Rails.env.production?
+
     OpenSSL::PKey::RSA.new(ENV["GOOGLE_CLOUD_STORAGE_PRIVATE_KEY"]&.gsub("\\n", "\n"))
   end
 end

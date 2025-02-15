@@ -16,6 +16,10 @@ steps:
     args:
     - -c
     - |
+      apt-get update && apt-get install -y jq
+      jq --version
+      PRIVATE_KEY=$(jq -r '.private_key' $$SERVICE_ACCOUNT_JSON)
+      echo "PRIVATE_KEY: $PRIVATE_KEY"
       gcloud run deploy ${_SERVICE_NAME} --image gcr.io/${PROJECT_ID}/${_SERVICE_NAME} \
       --update-env-vars=RAILS_MASTER_KEY=$$RAILS_KEY \
       --update-env-vars=SECRET_KEY_BASE=$$RAILS_KEY \
@@ -28,10 +32,10 @@ steps:
       --update-env-vars=GOOGLE_PROJECT_ID=${PROJECT_ID} \
       --update-env-vars=GOOGLE_CLOUD_BUCKET_NAME=$$BUCKET_NAME \
       --update-env-vars=GOOGLE_CLOUD_STORAGE_ISSUER=$$STORAGE_ISSUER \
-      --update-env-vars=GOOGLE_CLOUD_STORAGE_PRIVATE_KEY=$$STORAGE_PRIVATE_KEY \
+      --update-env-vars=GOOGLE_CLOUD_STORAGE_PRIVATE_KEY=$PRIVATE_KEY \
       --region asia-northeast1 \
       --allow-unauthenticated
-    secretEnv: ["RAILS_KEY", "DB_HOST", "DB_PORT", "DB_NAME", "DB_USER", "DB_PASS", "BUCKET_NAME", "STORAGE_ISSUER", "STORAGE_PRIVATE_KEY"]
+    secretEnv: ["RAILS_KEY", "DB_HOST", "DB_PORT", "DB_NAME", "DB_USER", "DB_PASS", "BUCKET_NAME", "STORAGE_ISSUER", "SERVICE_ACCOUNT_JSON"]
 
 substitutions:
   _SERVICE_NAME: rails-cloud-run-chat
@@ -55,8 +59,8 @@ availableSecrets:
     env: BUCKET_NAME
   - versionName: projects/156178245176/secrets/GOOGLE_CLOUD_STORAGE_ISSUER/versions/latest
     env: STORAGE_ISSUER
-  - versionName: projects/156178245176/secrets/GOOGLE_CLOUD_STORAGE_PRIVATE_KEY/versions/latest
-    env: STORAGE_PRIVATE_KEY
+  - versionName: projects/156178245176/secrets/SERVICE_ACCOUNT_JSON/versions/latest
+    env: SERVICE_ACCOUNT_JSON
 
 images:
   - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"
