@@ -19,10 +19,9 @@ steps:
       apt-get update && apt-get install -y jq
       jq --version
       echo "$$SERVICE_ACCOUNT_JSON"
-      echo "$$SERVICE_ACCOUNT_JSON" > ./rails-cloud-run.json
-      echo "$(cat ./rails-cloud-run.json)"
-      _PRIVATE_KEY=$(jq -r '.private_key' ./rails-cloud-run.json)
+      _PRIVATE_KEY=$(echo "$$SERVICE_ACCOUNT_JSON" | jq -r '.private_key')
       echo "PRIVATE_KEY: $_PRIVATE_KEY"
+      echo "PRIVATE_KEY: ${_PRIVATE_KEY}"
       gcloud run deploy ${_SERVICE_NAME} --image gcr.io/${PROJECT_ID}/${_SERVICE_NAME} \
       --update-env-vars=RAILS_MASTER_KEY=$$RAILS_KEY \
       --update-env-vars=SECRET_KEY_BASE=$$RAILS_KEY \
