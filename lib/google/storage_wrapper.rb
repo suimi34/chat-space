@@ -12,6 +12,9 @@ class Google::StorageWrapper
   end
 
   def upload_image(file_path, file_name)
+    image = MiniMagick::Image.new(file_path)
+    image.resize('100x100')
+    image.write(file_path)
     bucket = storage.bucket ENV["GOOGLE_CLOUD_BUCKET_NAME"] || 'chat-space'
     file = bucket.create_file file_path, file_name
   end
