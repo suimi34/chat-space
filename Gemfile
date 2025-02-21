@@ -69,5 +69,5 @@ group :development do
 end
 
 group :test do
-  gem 'faker', '~> 1.7', '>= 1.7.2'
+  gem 'faker', '~> 3.5'
 end
