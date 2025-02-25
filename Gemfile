@@ -28,8 +28,6 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'devise', '~> 4.4'
 
-gem 'dotenv-rails', '~> 2.2'
-
 gem 'google-cloud-storage'
 
 gem 'mini_magick', '~> 4.7', '>= 4.7.0'
