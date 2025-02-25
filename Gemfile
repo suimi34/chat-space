@@ -28,7 +28,7 @@ gem 'devise', '~> 4.4'
 
 gem 'google-cloud-storage'
 
-gem 'mini_magick', '~> 4.7', '>= 4.7.0'
+gem 'mini_magick', '~> 5.2'
 
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
 
