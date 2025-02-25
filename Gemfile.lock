@@ -269,7 +269,7 @@ GEM
     tzinfo (1.2.11)
       thread_safe (~> 0.1)
     uber (0.1.0)
-    uglifier (3.0.4)
+    uglifier (4.2.1)
       execjs (>= 0.3.0, < 3)
     unicorn (5.2.0)
       kgio (~> 2.6)
