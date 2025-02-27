@@ -70,8 +70,8 @@ GEM
     factory_girl_rails (4.9.0)
       factory_girl (~> 4.9.0)
       railties (>= 3.0.0)
-    faker (1.7.2)
-      i18n (~> 0.5)
+    faker (3.5.1)
+      i18n (>= 1.8.11, < 2)
     faraday (2.8.1)
       base64
       faraday-net_http (>= 2.0, < 3.1)
@@ -124,7 +124,7 @@ GEM
       haml (>= 4.0.6)
       railties (>= 5.1)
     httpclient (2.8.3)
-    i18n (0.9.5)
+    i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     jbuilder (2.13.0)
       actionview (>= 5.0.0)
@@ -303,7 +303,7 @@ DEPENDENCIES
   byebug
   devise (~> 4.4)
   factory_girl_rails (~> 4.8)
-  faker (~> 1.7, >= 1.7.2)
+  faker (~> 3.5)
   font-awesome-rails (~> 4.7, >= 4.7.0.1)
   google-cloud-storage
   haml-rails
