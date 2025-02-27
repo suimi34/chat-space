@@ -8,7 +8,7 @@ $(function() {
     var htmlDate = $('<div class="view__messages__message__date">').append(message.date);
     var htmlBody = $('<div class="view__messages__message__body">').append(message.body);
     var element = $("<div>", { class: "view__messages__message" }).append(htmlName, htmlDate, htmlBody);
-    if (message.image.url) {
+    if (message?.image?.url) {
       var htmlImage = document.createElement('img');
       htmlImage.src = message.image.url;
       element.append(htmlImage);
