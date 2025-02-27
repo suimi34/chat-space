@@ -1,6 +1,6 @@
 FactoryGirl.define do
 
-  sample_time = Faker::Time.between(2.days.ago, Time.now, :all)
+  sample_time = Faker::Time.between(from: 2.days.ago, to: Time.now)
 
   factory :message do
     body                      { Faker::Lorem.word }
