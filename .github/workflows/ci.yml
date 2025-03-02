@@ -24,6 +24,7 @@ jobs:
       - name: run rspec
         run: make rspec
   build:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
