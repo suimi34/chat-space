@@ -309,7 +309,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.20)
   byebug
-  devise (~> 4.4)
+  devise
   factory_girl_rails (~> 4.9)
   faker (~> 3.4, >= 3.4.2)
   font-awesome-rails
