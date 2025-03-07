@@ -6,7 +6,7 @@ gem 'rails', '~> 5.2', '>= 5.2.8.1'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.10', '< 0.6'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.1'
 
 gem 'terser'
 
@@ -22,7 +22,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
 
-gem 'devise', '~> 4.4'
+gem 'devise'
 
 gem 'google-cloud-storage'
 
@@ -49,9 +49,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
-  gem 'factory_girl_rails', '~> 4.8'
-  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.1'
+  gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
+  gem 'factory_girl_rails', '~> 4.9' # TODO: change to factory_bot
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.1' # TODO: remove
 end
 
 group :development do
