@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2', '>= 5.2.8.1'
+gem 'rails', '~> 8.0'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.10', '< 0.6'
 # Use SCSS for stylesheets
@@ -49,7 +49,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
+  gem 'rspec-rails', '~> 7.1'
   gem 'factory_girl_rails', '~> 4.9' # TODO: change to factory_bot
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.1' # TODO: remove
 end
