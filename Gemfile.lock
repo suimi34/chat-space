@@ -310,7 +310,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.20)
   byebug
   devise (~> 4.4)
-  factory_girl_rails (~> 4.8)
+  factory_girl_rails (~> 4.9)
   faker (~> 3.4, >= 3.4.2)
   font-awesome-rails
   google-cloud-storage

@@ -50,7 +50,7 @@ group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
-  gem 'factory_girl_rails', '~> 4.8'
+  gem 'factory_girl_rails', '~> 4.9'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.1'
 end
 
