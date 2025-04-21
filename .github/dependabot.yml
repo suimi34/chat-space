@@ -12,6 +12,7 @@ updates:
       # parser shall be same version as Ruby
       - dependency-name: "parser"
       - dependency-name: "mini_racer"
+      - dependency-name: "byebug" # 12.0.0 requires ruby 3.1
       - dependency-name: "faker"
         update-types:
           - version-update:semver-major
