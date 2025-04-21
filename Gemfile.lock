@@ -308,7 +308,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.20)
-  byebug
+  byebug (~> 11.1)
   devise
   factory_girl_rails (~> 4.9)
   faker (~> 3.4, >= 3.4.2)

@@ -47,7 +47,7 @@ end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'byebug', '~> 11.1'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
   gem 'factory_girl_rails', '~> 4.9' # TODO: change to factory_bot
