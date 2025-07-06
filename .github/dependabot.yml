@@ -6,13 +6,15 @@ updates:
       interval: "daily"
       time: "13:45"
       timezone: "Asia/Tokyo"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
     ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-patch"]
-      # parser shall be same version as Ruby
+      # Parser version should match Ruby version
       - dependency-name: "parser"
       - dependency-name: "mini_racer"
-      - dependency-name: "byebug" # 12.0.0 requires ruby 3.1
+      # Byebug 12.0.0 requires Ruby 3.1+
+      - dependency-name: "byebug"
       - dependency-name: "faker"
         update-types:
           - version-update:semver-major
