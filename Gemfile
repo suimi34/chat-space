@@ -10,7 +10,7 @@ gem 'sass-rails', '~> 5.1'
 
 gem 'terser'
 
-gem 'loofah', '~> 2.24.0'
+gem 'loofah', '~> 2.24.1'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'mini_racer', '~> 0.6.4'
