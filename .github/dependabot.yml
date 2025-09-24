@@ -18,3 +18,5 @@ updates:
       - dependency-name: "faker"
         update-types:
           - version-update:semver-major
+      # spring 4.4.0 requires Ruby 3.1+
+      - dependency-name: "spring"
