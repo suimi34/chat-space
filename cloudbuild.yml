@@ -25,7 +25,7 @@ steps:
       - |
         gcloud run deploy ${_SERVICE_NAME} \
           --image gcr.io/${PROJECT_ID}/${_SERVICE_NAME} \
-          --update-secrets=SECRET_KEY_BASE=${_SECRET_NAME}:latest,RAILS_MASTER_KEY=${_SECRET_NAME}:latest,DB_HOST=CHAT_DB_HOST:latest,DB_PORT=CHAT_DB_PORT:latest,DB_NAME=CHAT_DB_NAME:latest,DB_USER=CHAT_DB_USER:latest,DB_PASS=CHAT_DB_PASS:latest,GOOGLE_CLOUD_BUCKET_NAME=CHAT_BUCKET_NAME:latest,GOOGLE_CLOUD_STORAGE_ISSUER=GOOGLE_CLOUD_STORAGE_ISSUER:latest,GOOGLE_CLOUD_STORAGE_PRIVATE_KEY=${_GCS_PRIVATE_KEY_SECRET}:latest \
+          --update-secrets=SECRET_KEY_BASE=${_SECRET_NAME}:latest,RAILS_MASTER_KEY=${_SECRET_NAME}:latest,DB_HOST=CHAT_DB_HOST:latest,DB_PORT=CHAT_DB_PORT:latest,DB_NAME=CHAT_DB_NAME:latest,DB_USER=CHAT_DB_USER:latest,DB_PASS=CHAT_DB_PASS:latest,GOOGLE_CLOUD_BUCKET_NAME=CHAT_BUCKET_NAME:latest,GOOGLE_CLOUD_STORAGE_ISSUER=GOOGLE_CLOUD_STORAGE_ISSUER:latest,GOOGLE_CLOUD_STORAGE_PRIVATE_KEY=GOOGLE_CLOUD_STORAGE_PRIVATE_KEY:latest \
           --update-env-vars=RAILS_SERVE_STATIC_FILES=true,GOOGLE_PROJECT_ID=${PROJECT_ID} \
           --region asia-northeast1 \
           --allow-unauthenticated \
@@ -38,10 +38,8 @@ steps:
 
 substitutions:
   # Secret Manager resource names (Cloud Run injects them as env vars via --update-secrets).
-  # Add CHAT_GCS_PRIVATE_KEY with the service-account PEM used for GCS signing (replaces former _STORAGE_PRIVATE_KEY).
   _SERVICE_NAME: rails-cloud-run-chat
   _SECRET_NAME: RAILS_KEY
-  _GCS_PRIVATE_KEY_SECRET: CHAT_GCS_PRIVATE_KEY
 
 availableSecrets:
   secretManager:
