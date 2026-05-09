@@ -5,8 +5,8 @@ FactoryBot.define do
   factory :message do
     body                      { Faker::Lorem.word }
     image                     { Faker::File.file_name }
-    chat_group_id             { Faker::Number.between }
-    user_id                   { Faker::Number.between }
+    chat_group                { association(:chat_group) }
+    user                      { association(:user) }
     created_at                { sample_time }
     updated_at                { sample_time }
 
