@@ -5,7 +5,7 @@ bundle:
 	docker compose run --rm --no-deps web bundle
 
 migrate:
-	docker compose run --rm --no-deps web bundle exec rails db:migrate
+	docker compose run --rm web bundle exec rails db:migrate
 
 web:
 	docker compose up --no-deps -d web

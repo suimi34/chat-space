@@ -1,11 +1,11 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   sample_password = Faker::Internet.password(min_length: 8)
 
   factory :user do
     name                      { Faker::Name.name }
     email                     { Faker::Internet.email }
-    password                  sample_password
-    password_confirmation     sample_password
+    password                  { sample_password }
+    password_confirmation     { sample_password }
   end
 end
