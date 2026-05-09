@@ -39,7 +39,6 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'nokogiri', '>= 1.15.7', '< 1.18'
 
 gem 'faraday'
-# gem 'faraday-net_http'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
