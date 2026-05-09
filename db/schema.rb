@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2017_02_03_035108) do
+ActiveRecord::Schema.define(version: 2026_05_09_041602) do
 
   create_table "chat_groups", id: :integer, charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
