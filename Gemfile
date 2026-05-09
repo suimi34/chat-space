@@ -10,7 +10,7 @@ gem 'sass-rails', '~> 5.1'
 
 gem 'terser'
 
-gem 'loofah', '~> 2.24.1'
+gem 'loofah', '~> 2.25.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'mini_racer', '~> 0.6.4'
@@ -34,6 +34,8 @@ gem 'haml-rails'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.20'
+
+gem 'nokogiri', '>= 1.15.7', '< 1.18'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
