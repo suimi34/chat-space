@@ -91,7 +91,7 @@ GEM
     factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
-    faker (3.4.2)
+    faker (3.8.0)
       i18n (>= 1.8.11, < 2)
     faraday (2.8.1)
       base64
@@ -345,7 +345,7 @@ DEPENDENCIES
   byebug (~> 11.1)
   devise (~> 4.9)
   factory_bot_rails (~> 6.2)
-  faker (~> 3.4, >= 3.4.2)
+  faker (~> 3.8)
   faraday
   font-awesome-rails
   google-cloud-storage (~> 1.53)
