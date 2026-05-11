@@ -24,7 +24,7 @@ gem 'jbuilder'
 
 gem 'devise', '~> 4.9'
 
-gem 'google-cloud-storage', '~> 1.53'
+gem 'google-cloud-storage', '~> 1.59'
 
 gem 'mini_magick', '~> 5.3'
 
